@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - LemonPie</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo">
+            <img src="https://i.pinimg.com/1200x/fb/29/b0/fb29b0cb50dde9e86e4bcb68c15fa9ed.jpg" alt="LemonPie Logo">
+        </div>
+
+        <h2>Welcome! Learning app for deaf and mute.</h2>
+        <p class="subtitle">Keep your data safe</p>
+
+        <form id="loginForm">
+            <div class="input-group">
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <a href="Homeapp.html"> 
+            <button id="login-btn" class="login-btn">LOGIN</button>
+        </a>
+        </form>
+
+        <p class="forgot-password"><a href="#">Forgot password?</a></p>
+
+        <p class="register">Don't have an account? <a id="register-btn" href="#">Register</a></p>
+    </div>
+
+    <script src="scriptHome.js"></script>
+</body>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #fff;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 350px;
+    background: #fff;
+    text-align: center;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo */
+.logo img {
+    width: 200px;
+}
+.logo {
+    display: block;
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* Titles */
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Input Fields */
+.input-group {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* Login Button */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #ffcc00;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    background: #ffdb4d;
+}
+
+/* Links */
+.forgot-password, .register {
+    margin-top: 10px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #ff9900;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("login-btn").addEventListener("click", function (event) {
+            event.preventDefault();
+
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Email validation pattern
+            let passwordPattern = /^.{6,}$/; // Password should be at least 6 characters
+
+            if (!emailPattern.test(email)) {
+                alert("Invalid email format. Please enter a valid email.");
+                return;
+            }
+
+            if (!passwordPattern.test(password)) {
+                alert("Password must be at least 6 characters long.");
+                return;
+            }
+
+            alert("Login successful! Redirecting to home page...");
+            window.location.href = "Homeapp.html"; // Redirect to home page
+        });
+
+        document.getElementById("register-btn").addEventListener("click", function () {
+            window.location.href = "register.html"; // Redirect to Registration Page
+        });
+    });
+</script>
+
+</html>
