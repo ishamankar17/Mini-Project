@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Language Translator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background: #f0f8ff;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 280px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #357ec7;
+            color: white;
+            border: none;
+            margin-left: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        video {
+            margin-top: 20px;
+            width: 400px;
+            border-radius: 10px;
+            border: 2px solid #357ec7;
+        }
+        .output {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>English to Hindi Sign Language Translator</h1>
+    <input type="text" id="wordInput" placeholder="Enter English Word">
+    <button onclick="translate()">Translate</button>
+
+    <div class="output" id="outputSection" style="display:none;">
+        <div id="hindiResult"></div>
+        <div id="videoSection" style="margin-top:15px;">
+            <video id="signVideo" controls></video>
+        </div>
+    </div>
+
+    <script>
+        async function translate() {
+            const word = document.getElementById('wordInput').value.trim();
+            if (!word) {
+                alert("Please enter a word.");
+                return;
+            }
+
+            const response = await fetch(`/translate?word=${word}`);
+            const data = await response.json();
+
+            document.getElementById('outputSection').style.display = 'block';
+            document.getElementById('hindiResult').innerText = `Hindi: ${data.hindi_translation}`;
+
+            const videoElement = document.getElementById('signVideo');
+            if (data.video_found) {
+                videoElement.src = data.video_url;
+                videoElement.style.display = 'block';
+            } else {
+                videoElement.style.display = 'none';
+                alert("Video not found for this word.");
+            }
+        }
+    </script>
+</body>
+</html>
