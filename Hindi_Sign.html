@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Hindi Alphabets in Sign Language</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+     
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Bundle with Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #def9e5;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            opacity: 0;
+           transform: translateX(-100px);
+           animation: slideInLeft 0.8s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+        .header {
+            background-color: #357ec7;
+            color: white;
+            padding: 60px;
+            font-size: 24px;
+            font-weight: bold;
+            height: 150px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            background-color: #fefeca;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .grid button {
+            padding: 10px;
+            background-color: white;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .grid button:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        .image-container {
+            margin-top: 20px;
+        }
+        .image-container img {
+            width: 250px;
+            height: auto;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+        }
+
+       /* Navbar */
+   .navbar {
+    background: #c8e6c9; /* Soft green from the image */
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;              /* Full width */
+    z-index: 1000;
+}
+
+
+        .navbar .navbar-brand {
+            font-weight: bold;
+            color: black !important;
+            display: flex;
+            gap: 25px;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: bold;
+            color: black !important;
+            transition: 0.3s;
+            font-size: medium;
+            gap: 25px !important;
+            
+        }
+
+        .navbar-nav .nav-link:hover {
+            background: rgba(50, 205, 50, 0.3);
+            border-radius: 10px;
+        }
+
+        /* Dropdown */
+        .dropdown select {
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            background: #b2e3a8;
+            font-weight: bold;
+        }
+        .navbar-toggler {
+    margin-right: auto;
+  /* Pushes it to the right */
+}
+
+        @media (max-width: 991px) {
+    .navbar-collapse {
+        position: absolute;
+        top: 100%; /* Position it right below the navbar */
+        left: 0;
+        width: 50% !important;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        z-index: 1000; /* Ensure it stays above other content */
+        align-items: flex-end; /* Move items to the right */
+        text-align: left; /* Align text */
+        padding-left: 20px; /* Add some spacing */
+    }
+} 
+
+
+    </style>
+</head>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item me-3"><a class="nav-link" href="Homeapp.html">Home <i class="bi bi-house"></i></a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="LearnISL.html">Learn ISL <i class="bi bi-alphabet-uppercase"></i></a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="LearnNumber.html">Learn Numbers <i class="bi bi-list-ol"></i></a></li>
+                <li class="nav-item me-3"><a class=" nav-link" href=" http://127.0.0.1:5000">Translator <i class="bi bi-translate"></i></a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="Aboutusapp.html">About Us <i class="bi bi-file-earmark-person-fill"></i></a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="Contactpage.html">Contact <i class="bi bi-person-lines-fill"></i></a></li>
+                <li class="nav-item dropdown">
+                    <select id="languageSelect">
+                        <option value="en">English</option>
+                        <option value="hi">Hindi</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+    </nav>
+<body>
+  
+
+    <div class="header">Learn Hindi Alphabets in Sign Language</div>
+    <div class="container">
+        <p><strong>Click on a letter to see its sign representation:</strong></p>
+        <div class="grid" id="letterGrid"></div>
+        <div class="image-container">
+            <img id="signImage" src="" alt="Sign Language Representation">
+        </div>
+    </div>
+
+    <script>
+        const letters = [
+            "अ", "आ", "इ", "ई", "उ", "ऊ", "ए", "ऐ", "ओ", "औ",
+            "क", "ख", "ग", "घ", "च", "छ", "ज", "झ", "ट", "ठ",
+            "ड", "ढ", "ण", "त", "थ", "द", "ध", "न", "प", "फ",
+            "ब", "भ", "म", "य", "र", "ल", "व", "श", "ष", "स", "ह"
+        ];
+
+        const imageLinks = {
+            "अ": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCgnyvxnEk_MZMFcIA1GpaXNu4StY4hN1hZn5mr0Kmn-HT7uRWp7NLdufI6W8Kq8AUbRjGPCOp7_GEWs1Utsal8BWBjNllA30txdY3SlFK_RnThVFGz5zoE2hI7mX6FqGqdcO-dbGDmUQ/s1600/Presentationa-a.jpg",
+            "आ": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXJTOM3E0-q2Ugm8fQOA3iaCSWiOefEHkpsAnaWsJtMoMlj7CewsZ58WPQ3Qa049-EUtI&usqp=CAU",
+            "इ": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvdDlN7QcarwG7YaTE7Fw9oziFr5zfMqy1lci4xex5NIdQbPQTn_mBOsIpgCNvzxEk-EfdVDIkmaumVr2-TbJkM3H-uHil8H6zGDQ_Q-SB2kCNC2SjMwn6hBPL8J0xkoGowxICHt-fNXs/s1600/Presentation1+Hindi-9e.jpg",
+            "ई": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjbZf5_vtFqJBM91cGuIQ2ACEHLA2ZG8XwCPO-bErsz2W13_y_WcG7xCKaOqqkQws2Kos6xoqCt3FCQaHVbxf9TEOrkve-JfFabdrkmVyiT8PqFC0B0916wuDnbHXm68y9hPqW33yC-src/s1600/Presentation1+Hindi-10ee.jpg",
+            "उ": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo4igkjD5HElLUO0865vVdZe4J7BtFwCrnUr4-69a1J9KkxG3dXQjGOzgHFTRithlHdQs&usqp=CAU",
+            "ऊ": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg-9Z_5C7pB01A2BJpWwVMpfUsQGNIEW8vNIaiuI-i5Fh73ZJtjM2VYThjL5_93_OdS_Y&usqp=CAU",
+            "ए": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL0KMX6VVmW0mbep43Ubb_IOme5hdQIh2TND2D3ffw6EKYOHct65T8R14Lh9dx7vo30zI&usqp=CAU",
+            "ऐ": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ11wMLUt3ezkALGaRejbT0XWt1rkIQl6MiMFkRoOzdxE6TvGfSA9DOOLsDzlhuQ_Sm9xU&usqp=CAU",
+            "ओ": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVFtv5aaVEvZDo-hHSROOQk_RnTrR9XiJoK3h-UgfqdHj4hzGtjFFuC7Zb0wS0slvzSk4&usqp=CAU",
+            "औ": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgojf1aah7GoeDY8iUaEutN0MDWutdvvVxttC_pLUxSMusuuBOWY93nX0v4Zd_mWw4tkB9LcaROQzD4zpgGhWfmTaXGrkneL0jYrNpmyW2MbFnBFhyZK9shChYf5JqpV0Y3W242p59haKM/s1600/Presentation1+Hindi-16oow.jpg",
+            "क": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtcrwPLA6m4UDkBUJ8O8SvpCGDaVjVTk_qEcIQscq_vKd2GSExvZfv9uilNlJtVLpFrGa8Vnp3Ks4c-MLvTVY3BVONWmzYYDaV_kAlcP7G8JB0gJ2LygF0hGpy5YUbV2JXw-bjqArslPo/s1600/Presentation1+Hindi-17k.jpg",
+            "ख": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlJJFLMd_4v9ahH-F-SNRkqClErYF1sRdmEZjKkhHgdoQxaPIo6JfZwqSp5EzkVOFiwqk&usqp=CAU",
+            "ग": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnE3ay0bmuCjL7jwi7Wpe_KEnY5cNZgDRmFwp9nyX5lWCDjKYTw846yf2SCcSTeFQlZ9o&usqp=CAU",
+            "घ": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDpqEjfp9W_ENRrCG_k9FshFhvn2keQK6ZqxYnwlsvLFG8C6iq8CN8cbNR2JoXKL9Uwi0&usqp=CAU",
+            "च": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjGegKiLkdNBa5YuunoD_Sv0_yxcVttAUgR1UFimap8u5PPrvmZBGWp6PcI5yqdfcYeGuMfqPhm9Qw7cOriLUhohzY4afFUWJeKF9bSSKOUo8vh2JXntBMDPApf8zhTJCRZp3i0EYc15U/s320/Presentation1+Hindi-24ch.jpg",
+            "छ": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsPMQZoz2QqTzgFUMT4xwNKzr2A4xmyoOCMh0RtqrodK4RbX0v7EtBwttE2fi015i5nVr2xICsnVYShXpcgeyoAMA06TGMA70_7RrI6ZkmUO9ZCdYU9ufBISzqx7lK5K2_JTXuQcTVZnc/s320/Presentation1bhide-42.jpg",
+            "ज": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgN05trbq__XY_aa3eSBqyaKvcP9SUNUKhaiVYNuw1YNq1UxbM68I9V7KMh_ohQ5-xG7uHAngI0eiJGgQ5mpfky4ZepgcacL6eQSt6X2Bcg_rCZPYxFqib-hs9hmoyc-wflBClY3poABuk/s1600/Presentation1bhide-15j.jpg",
+            "झ": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMVRvUG60UbQk5oh0cneLLnulTKZwt5q0Yo0uAM7plPXrp2D2bK3Ydm0gju4J1Do33FFE&usqp=CAU",
+            "ट": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTr1F51JL-0gZtlHF69fmOeI2CUM2NRCr3_S_sFFteiDstk0o6lJtKg53edMDPfHL1oW0&usqp=CAU",
+            "ठ": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPsdFvy0qRiiV64fCOvTHgyVPGZu-zgx_9qPxmo_qodytf1baRF3l9jgL-8hLfmKQGIaI&usqp=CAU",
+            "ड": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7a0f3CwP-MY8kFNmO3dGW7quxjNyKfuG1zNNtXAiurNWdwZd0DOZanGR-1-VrJjAs4i4&usqp=CAU",
+            "ढ": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpPj4tR-Tfh7DlOnLjFpuDjSDCeOquWi-Y_36unu0Uj8yGU4KPzt-NHL1n0ClNPJAQFi8&usqp=CAU",
+            "ण": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLKrjLKD09RsU5_ZHsStA1vdeHD5N1ZAXcJwywrIahjfEHJTkUWGHTct_QvQoj_IEsNZA&usqp=CAU",
+            "त": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirOvhXcSGrIvK0FpczQwzl-ltD_gR6mwXbSF2GhyphenhyphenEkOf3b1QSMZ_rrFc7NpG96pejDl3yR5wRhlKANicVDtHN3TVtnx_gKvDLdhR0J_iaiopbBkYIVJviQL1pTClhJcM4pR1YIcvnd4h8/s320/Presentation1+Hindi-36t.jpg",
+            "थ": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDG0VmeGjeZWaKK-FMTChXLCSssTm1MgiBTbk342KpDsZphVjoLuKDaAdRnrUlj3ZvIlJNqC6hurGt7hZMPzAm7VRo7tjHIEndJ7ob6s2KJ7AvAwaIcDGn6gNHI_dJ43837CCl2SbkeoY/s320/Presentation1+Hindi-37th.jpg",
+            "द": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRayT8GwgJLQ4IZnCXlrzfIoh3J5vK4z1AAIr2fiYPavkGNGKuUvuLiHDSG2IRsShMFZUk&usqp=CAU",
+            "ध": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3aN4PF3fKLYtqUPU8eXwnxpwJ39eJ9OJvg3LuQXb1Wcgz2Ak6vthGoV8marfwROk__4s&usqp=CAU",
+            "न": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhixEvfpiu-MKioijFnqZUgACq0rPiOC-0pQG8g2KxdzIiEcQ20URMfnqFg4SI2Zhp8ysxd0ZXVoVNzz6mhSJbUmGzidkbnKOOzymiywRop0zV-ChNuS_jLKqaHpNqjFDDTwQbnOMHU5R0/s320/Presentation1+Hindi-40n.jpg",
+            "प": "https://via.placeholder.com/250x250?text=%E0%A4%AA",
+            "फ": "https://via.placeholder.com/250x250?text=%E0%A4%AB",
+            "ब": "https://via.placeholder.com/250x250?text=%E0%A4%AC",
+            "भ": "https://via.placeholder.com/250x250?text=%E0%A4%AD",
+            "म": "https://via.placeholder.com/250x250?text=%E0%A4%AE",
+            "य": "https://via.placeholder.com/250x250?text=%E0%A4%AF",
+            "र": "https://via.placeholder.com/250x250?text=%E0%A4%B0",
+            "ल": "https://via.placeholder.com/250x250?text=%E0%A4%B2",
+            "व": "https://via.placeholder.com/250x250?text=%E0%A4%B5",
+            "श": "https://via.placeholder.com/250x250?text=%E0%A4%B6",
+            "ष": "https://via.placeholder.com/250x250?text=%E0%A4%B7",
+            "स": "https://via.placeholder.com/250x250?text=%E0%A4%B8",
+            "ह": "https://via.placeholder.com/250x250?text=%E0%A4%B9"
+        };
+
+        const grid = document.getElementById("letterGrid");
+        const image = document.getElementById("signImage");
+
+        letters.forEach(letter => {
+            const button = document.createElement("button");
+            button.textContent = letter;
+            button.addEventListener("click", () => {
+                if (imageLinks[letter]) {
+                    image.src = imageLinks[letter];
+                    image.alt = `Sign representation of ${letter}`;
+                } else {
+                    image.src = "";
+                    image.alt = "No image available";
+                }
+            });
+            grid.appendChild(button);
+        });
+    </script>
+</body>
+</html>

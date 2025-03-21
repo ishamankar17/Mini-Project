@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Language Learning - Categories</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+   
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Bundle with Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Language Learning - Categories</title>
+  <link rel="stylesheet" href="flower.css" />
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+     
+      <!-- Toggler Button -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+              <li class="nav-item me-3"><a class="nav-link" href="Homeapp.html">Home <i class="bi bi-house"></i></a></li>
+              <li class="nav-item me-3"><a class="nav-link" href="LearnISL.html">Learn ISL <i class="bi bi-alphabet-uppercase"></i></a></li>
+              <li class="nav-item me-3"><a class="nav-link" href="LearnNumber.html">Learn Numbers <i class="bi bi-list-ol"></i></a></li>
+              <li class="nav-item me-3"><a class="nav-link" href="#translator">Translator <i class="bi bi-translate"></i></a></li>
+              <li class="nav-item me-3"><a class="nav-link" href="Aboutusapp.html">About Us <i class="bi bi-file-earmark-person-fill"></i></a></li>
+              <li class="nav-item me-3"><a class="nav-link" href="Contactpage.html">Contact <i class="bi bi-person-lines-fill"></i></a></li>
+              <li class="nav-item dropdown">
+                  <select id="languageSelect">
+                      <option value="en">English</option>
+                      <option value="hi">Hindi</option>
+                  </select>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+ 
+  <h1 class="title">Learn Sign Language</h1>
+
+  <div class="categories-container">
+  <div class="categories">
+    <button onclick="loadCategory('fruits')">Fruits</button>
+    <button onclick="loadCategory('vegetables')">Vegetables</button>
+    <button onclick="loadCategory('animals')">Animals</button>
+    <button onclick="loadCategory('colours')">Colours</button>
+  </div>
+</div>
+  <p class="description">
+    Click on a category to explore sign language gestures related to fruits, vegetables, animals, and colours.
+  </p>
+
+  <div class="image-container" id="image-container">
+    <!-- Images and labels will be loaded dynamically here -->
+  </div>
+
+  <script src="flower.js"></script>
+<style>
+  /* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #def9e5;
+  text-align: center;
+  margin: 0;
+  padding: 3px;
+  opacity: 0;
+  transform: translateX(-100px);
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+  
+
+
+/* Align title and category buttons */
+.title {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 40px;
+  margin-top: 70px;
+}
+
+/* Blue rectangle around buttons */
+.categories-container {
+  background-color: #341ada; /* Blue background */
+  padding: 20px;
+  border-radius: 12px;
+  display: inline-block; /* Keeps it tight around buttons */
+  margin-bottom: 20px;
+}
+
+/* Buttons inside the blue container */
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.categories button {
+  background-color: white; /* White buttons on blue */
+  color: #341ada;           /* Blue text */
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.categories button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Grid for 2 images per row */
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  /* 2 columns */
+  gap: 30px;
+  margin-top: 20px;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.image-item {
+  text-align: center;
+}
+
+.image-item img {
+  width: 100%;
+  max-width: 250px;
+  height: 250px;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.image-item p {
+  margin-top: 10px;
+  font-size: 20px;
+  color: #555;
+  font-weight: bold;
+}
+
+ /* Navbar */
+ .navbar {
+    background: #c8e6c9; /* Soft green from the image */
+    padding: 5px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;              /* Full width */
+    z-index: 1000;
+}
+
+
+        .navbar .navbar-brand {
+            font-weight: bold;
+            color: black !important;
+            display: flex;
+            gap: 25px;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: bold;
+            color: black !important;
+            transition: 0.3s;
+            font-size: medium;
+            gap: 25px !important;
+            
+        }
+
+        .navbar-nav .nav-link:hover {
+            background: rgba(50, 205, 50, 0.3);
+            border-radius: 8px;
+        }
+
+        /* Dropdown */
+        .dropdown select {
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            background: #b2e3a8;
+            font-weight: bold;
+        }
+        .navbar-toggler {
+    margin-right: auto;
+  /* Pushes it to the right */
+}
+
+        @media (max-width: 991px) {
+    .navbar-collapse {
+        position: absolute;
+        top: 100%; /* Position it right below the navbar */
+        left: 0;
+        width: 50% !important;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        z-index: 1000; /* Ensure it stays above other content */
+        align-items: flex-end; /* Move items to the right */
+        text-align: left; /* Align text */
+        padding-left: 20px; /* Add some spacing */
+    }
+} 
+
+</style>
+<script>
+  const data = {
+  fruits: [
+    { name: 'Apple', image: 'https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/apple.svg' },
+    { name: 'Banana', image: 'https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/banana.svg' },
+    { name: 'Orange', image: 'https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/orange.svg' },
+    { name: 'Grapes', image: 'https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/grapes.svg' },
+    { name: 'Pineapple', image: 'https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/pineapple.svg' },
+    { name: 'Cherry', image: 'https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/cherry.svg' }
+  ],
+  vegetables: [
+    { name: 'Tomato', image: 'https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/tomato.svg' },
+    { name: 'Carrot', image: 'https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/carrot-preview-png.png' },
+    { name: 'Potato', image: 'https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/potato.svg' },
+    { name: 'Onion', image: 'https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/onion.svg' },
+    { name: 'Beans', image: 'https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/bean.svg' },
+    { name: 'Peas', image: 'https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/peas.svg' }
+  ],
+  animals: [
+    { name: 'Dog', image: 'https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/dog.svg' },
+    { name: 'Cat', image: 'https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/cat.svg' },
+    { name: 'Elephant', image: 'https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/elephant.svg' },
+    { name: 'Tiger', image: 'https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/tiger.svg' },
+    { name: 'Lion', image: 'https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/lion.svg' },
+    { name: 'Giraffe', image: 'https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/giraffe.svg' }
+  ],
+  colours: [
+    { name: 'Red', image: 'https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/red.svg' },
+    { name: 'Blue', image: 'https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/blue.svg' },
+    { name: 'Green', image: 'https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/green.svg' },
+    { name: 'Yellow', image: 'https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/yellow.svg' },
+    { name: 'Black', image: 'https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/black.svg' },
+    { name: 'White', image: 'https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/white.svg' }
+  ]
+};
+
+function loadCategory(category) {
+  const container = document.getElementById('image-container');
+  container.innerHTML = ''; // Clear existing content
+
+  data[category].forEach(item => {
+    const element = document.createElement('div');
+    element.classList.add('image-item');
+
+    element.innerHTML = `
+      <img src="${item.image}" alt="${item.name}" />
+      <p>${item.name}</p>
+    `;
+
+    container.appendChild(element);
+  });
+}
+
+
+
+</script>
+</body>
+</html>

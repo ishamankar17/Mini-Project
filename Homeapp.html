@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1, user-scalable=no">
+
+    <title>Learn Indian Sign Language</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifestf.json">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+     
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Bundle with Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Homestyle.css">
+    <script defer src="scriptchange.js"></script>
+    
+
+    <style>
+    body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #d4edc9; /* Light green from the image */
+    text-align: center;
+    color: black;
+    opacity: 0;
+    transform: translateX(-100px);
+    animation: slideInLeft 0.8s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Header Section */
+.header {
+    background: #b2e3a8; /* Slightly darker green for contrast */
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: black;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+    color: black;
+}
+
+.subtitle {
+    font-size: 14px;
+    margin-top: 5px;
+    color: black;
+}
+
+
+/* Main Content */
+.main-content {
+    margin-top: 50px;
+}
+
+.main-content h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+}
+
+/* CTA Button */
+.cta-button {
+    background: #4CAF50; /* Green button */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+    background: #388E3C; /* Darker Green */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Emoji */
+.emoji {
+    font-size: 40px;
+    margin-top: 20px;
+}
+
+ /* Custom styles for the carousel */
+ .carousel-inner img {
+            width: 100%;         /* Full width */
+            height: 400px;       /* Fixed height */
+            display: flex;
+            align-items: center; /* Vertically centers images */
+            justify-content: center; /* Horizontally centers images */
+        }
+        .carousel-item img {
+            max-height: 400px; /* Adjust height */
+            width: 700px; /* Maintain aspect ratio */
+            margin: auto; /* Center horizontally */
+            object-fit: contain;
+            margin-top: -30px !important; /* Ensures full image is visible */
+        }
+
+
+
+   /* Navbar */
+   .navbar {
+    background: #c8e6c9; /* Soft green from the image */
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+        .navbar .navbar-brand {
+            font-weight: bold;
+            color: black !important;
+            display: flex;
+            gap: 25px;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: bold;
+            color: black !important;
+            transition: 0.3s;
+            font-size: medium;
+            gap: 25px !important;
+            
+        }
+
+        .navbar-nav .nav-link:hover {
+            background: rgba(50, 205, 50, 0.3);
+            border-radius: 10px;
+        }
+
+        /* Dropdown */
+        .dropdown select {
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            background: #b2e3a8;
+            font-weight: bold;
+        }
+        .navbar-toggler {
+    margin-right: auto;
+  /* Pushes it to the right */
+}
+
+        @media (max-width: 991px) {
+    .navbar-collapse {
+        position: absolute;
+        top: 100%; /* Position it right below the navbar */
+        left: 0;
+        width: 50% !important;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        z-index: 1000; /* Ensure it stays above other content */
+        align-items: flex-end; /* Move items to the right */
+        text-align: left; /* Align text */
+        padding-left: 20px; /* Add some spacing */
+    }
+} 
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Learn Indian Sign Language</h1>
+        <p class="subtitle">Empowering communication through ISL - Learn, Practice, and Connect!</p>
+    </div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item me-3"><a class="nav-link" href="Homeapp.html">Home <i class="bi bi-house"></i></a></li>
+            <li class="nav-item me-3"><a class="nav-link" href="LearnISL.html">Learn ISL <i class="bi bi-alphabet-uppercase"></i></a></li>
+            <li class="nav-item me-3"><a class="nav-link" href="LearnNumber.html">Learn Numbers <i class="bi bi-list-ol"></i></a></li>
+            <li class="nav-item me-3"><a class=" nav-link" href=" http://127.0.0.1:5000">Translator <i class="bi bi-translate"></i></a></li>
+            <li class="nav-item me-3"><a class="nav-link" href="Aboutusapp.html">About Us <i class="bi bi-file-earmark-person-fill"></i></a></li>
+            <li class="nav-item me-3"><a class="nav-link" href="Contactpage.html">Contact <i class="bi bi-person-lines-fill"></i></a></li>
+            <li class="nav-item dropdown">
+                <select id="languageSelect">
+                    <option value="en">English</option>
+                    <option value="hi">Hindi</option>
+                </select>
+            </li>
+        </ul>
+    </div>
+</nav>
+    <div class="main-content">
+        <h2>Bridging Communication for the Deaf & Mute</h2>
+        <a href="startbutton.html">
+        <button class="cta-button">Start Learning</button>
+    </a>
+        <div class="emoji">🖐️</div>
+        <p>Explore the basics of Indian Sign Language through interactive visuals.</p>
+       
+          <!-- Carousel Section -->
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+                <img src="https://img.freepik.com/premium-vector/deaf-mute-people-use-sign-language-by-showing-palm-signs-communicate-instead-speaking_160308-8027.jpg" class="d-block w-100" alt="Slide 1">
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+                <img src="https://img.freepik.com/premium-vector/pair-deaf-mute-people-communicate-using-sign-language-elderly-africanamerican-man-hearingimpaired-young-man_697837-762.jpg?w=360" class="d-block w-100" alt="Slide 2">
+            </div>
+          
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <script>
+    window.addEventListener('load', function() {
+        const currentPage = window.location.pathname.split('/').pop(); // Get the current page name
+        const navLinks = document.querySelectorAll('.navbar ul li');
+    
+        navLinks.forEach(link => {
+            const linkName = link.id; // Get the ID of the list item (should match page names)
+            if (linkName === currentPage.replace('.html', '')) {
+                link.classList.add('active'); // Add the active class to the corresponding link
+            }
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("languageSelect").addEventListener("change", function () {
+        const language = this.value;
+
+        const translations = {
+            "en": {
+                "title": "Learn Indian Sign Language",
+                "subtitle": "Empowering communication through ISL - Learn, Practice, and Connect!",
+                "bridging": "Bridging Communication for the Deaf & Mute",
+                "start": "Start Learning",
+                "explore": "Explore the basics of Indian Sign Language through interactive visuals.",
+                "home": "Home",
+                "learn": "Learn ISL",
+                "translator": "Translator",
+                "about": "About Us",
+                "contact": "Contact"
+            },
+            "hi": {
+                "title": "भारतीय सांकेतिक भाषा सीखें",
+                "subtitle": "आईएसएल के माध्यम से संचार को सशक्त बनाना - सीखें, अभ्यास करें और जुड़ें!",
+                "bridging": "बधिर और मूक के लिए संचार का पुल",
+                "start": "सीखना शुरू करें",
+                "explore": "इंटरएक्टिव दृश्य के माध्यम से भारतीय सांकेतिक भाषा की मूल बातें जानें।",
+                "home": "होम",
+                "learn": "आईएसएल सीखें",
+                "translator": "अनुवादक",
+                "about": "हमारे बारे में",
+                "contact": "संपर्क करें"
+            }
+        };
+
+        // Update page content
+        document.querySelector(".header h1").textContent = translations[language].title;
+        document.querySelector(".header p").textContent = translations[language].subtitle;
+        document.querySelector(".main-content h2").textContent = translations[language].bridging;
+        document.querySelector(".cta-button").textContent = translations[language].start;
+        document.querySelector(".main-content p").textContent = translations[language].explore;
+
+        // Update navbar links
+        document.getElementById("navHome").textContent = translations[language].home;
+        document.getElementById("navLearn").textContent = translations[language].learn;
+        document.getElementById("navTranslator").textContent = translations[language].translator;
+        document.getElementById("navAbout").textContent = translations[language].about;
+        document.getElementById("navContact").textContent = translations[language].contact;
+    });
+});
+
+  
+</script> 
+    <!-- Bootstrap JS -->
+          
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+<style>
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 18px;
+        background-color: #3bb725;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        animation: floatButton 2s infinite ease-in-out;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+        background-color: #3bb725;
+        transform: scale(1.1);
+    }
+
+    @keyframes floatButton {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+        100% { transform: translateY(0); }
+    }
+</style>
+
+</html>

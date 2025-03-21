@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learn Words</title>
+  <link rel="stylesheet" href="style.css" />
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Bundle with Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+       
+        <!-- Toggler Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item me-3"><a class="nav-link" href="Homeapp.html">Home <i class="bi bi-house"></i></a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="LearnISL.html">Learn ISL <i class="bi bi-alphabet-uppercase"></i></a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="LearnNumber.html">Learn Numbers <i class="bi bi-list-ol"></i></a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="#translator">Translator <i class="bi bi-translate"></i></a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="Aboutusapp.html">About Us <i class="bi bi-file-earmark-person-fill"></i></a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="Contactpage.html">Contact <i class="bi bi-person-lines-fill"></i></a></li>
+                <li class="nav-item dropdown">
+                    <select id="languageSelect">
+                        <option value="en">English</option>
+                        <option value="hi">Hindi</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+   
+
+  <h1>Learn Words</h1>
+  <div class="word-grid">
+    <span class="word" data-word="Hello">Hello</span>
+    <span class="word" data-word="Thank">Thank You</span>
+    <span class="word" data-word="Please">Please</span>
+    <span class="word" data-word="GoodB">Good bye</span>
+    <span class="word" data-word="Glad">Glad</span>
+    <span class="word" data-word="Yes">Yes</span>
+    <span class="word" data-word="Welcome">You are welcome</span>
+    <span class="word" data-word="Sorry">Sorry</span>
+    <span class="word" data-word="No">No</span>
+    <span class="word" data-word="Sad">Sad</span>
+    <span class="word" data-word="House">House</span>
+    <span class="word" data-word="Family">Family</span>
+    <span class="word" data-word="Good">Good</span>
+    <span class="word" data-word="Love">Love</span>
+    <span class="word" data-word="Hi">Hi</span>
+    <span class="word" data-word="Beautiful">Beautiful</span>
+    <span class="word" data-word="Happy">Happy</span>
+    <span class="word" data-word="Dance">Dance</span>
+    <span class="word" data-word="Stop">Stop</span>
+    <span class="word" data-word="Fear">Fear</span>
+    <span class="word" data-word="Bye">Bye</span>
+    <span class="word" data-word="Hug">Hug</span>
+    <span class="word" data-word="Want">Want</span>
+    <span class="word" data-word="Later">See you later</span>
+
+    <!-- Add more words here -->
+  </div>
+
+  <!-- Fullscreen Image Modal -->
+  <div class="modal" id="imageModal">
+    <span class="close-btn" id="closeModal">&times;</span>
+    <img id="modalImage" src="" alt="Word Image" />
+  </div>
+
+  <script>
+   const wordImages = {
+  Hello: "https://media.istockphoto.com/id/1148738497/vector/vector-deaf-mute-sign-language-character-gesture.jpg?s=2048x2048&w=is&k=20&c=8odbgY3lAOvAHVRKMotLwWVskggWpZPhYy7KZdeDsFk=",
+  Thank: "https://media.istockphoto.com/id/1148738498/vector/vector-deaf-mute-sign-language-character-gesture.jpg?s=2048x2048&w=is&k=20&c=FXnIlH0BP1pb0IQ5I4u4OqQmILwz4rbGI4vp20jF0Aw=",
+  Please: "https://media.istockphoto.com/id/2196409007/vector/guilty-woman-begs-for-help-and-assistance-in-solving-problem-demonstrates-pleading-emotions.jpg?s=2048x2048&w=is&k=20&c=Xrbi22Qg2VbVC-UxaBdYLUgPnJajXjArxop8iv9QLi8=",
+  GoodB: "https://media.istockphoto.com/id/1148738491/vector/vector-deaf-mute-sign-language-character-gesture.jpg?s=2048x2048&w=is&k=20&c=G_zUM3CPG7ZYEw9RjZ0P0RKHgYexgD3ZIuoxuece308=",
+  Yes: "https://media.istockphoto.com/id/1148738474/vector/vector-deaf-mute-sign-language-character-gesture.jpg?s=170x170&k=20&c=v3_Q0qmKZUSCJJgHydgfh_OsbQC0APuiGR3mRiMPaLM=",
+  Welcome: "https://media.istockphoto.com/id/1148738473/vector/vector-deaf-mute-sign-language-character-gesture.jpg?s=2048x2048&w=is&k=20&c=Vr9y6bfhZOF4piXFt56DRy1phqZfAFEFeWGbznUAr4M=",
+  No:"https://en.pimg.jp/046/658/077/1/46658077.jpg",
+  Sad:"https://media.istockphoto.com/id/1292093541/vector/young-woman-simple-touch-anxious-expression-set-of-figures-and-poses.jpg?s=2048x2048&w=is&k=20&c=kwvlbsBhHezMeYX9x3bFXmhjIANaqRXWS9HmT2-O1mU=",
+  Sorry:"https://media.istockphoto.com/id/1148738495/vector/vector-deaf-mute-sign-language-character-gesture.jpg?s=612x612&w=0&k=20&c=-_I8C-UT9e0NI_D6rRK_RHDcrGc_BmNbSu4F7PnS7pA=",
+  House:"https://media.istockphoto.com/id/1148738501/vector/vector-deaf-mute-sign-language-character-gesture.jpg?s=2048x2048&w=is&k=20&c=4ewPnvmpTzndMNZPWjzCSaGTg0UVZvZaieuRxHgWU1Y=",
+  Family:"https://media.istockphoto.com/id/1148738504/vector/vector-deaf-mute-sign-language-character-gesture.jpg?s=170x170&k=20&c=ZmNl-ptbtXZXx1Yixj_cQ5tZEZHqdMYwJbpPLIejQ2o=",
+  Glad:"https://media.istockphoto.com/id/1292093595/vector/young-woman-set-of-smiling-figures-and-poses-with-a-simple-touch.jpg?s=2048x2048&w=is&k=20&c=VkGiMuAdlpngNg7klM6cbSHEeQZZZPIK8Wqeebx_DYU=",
+  Good:"https://media.istockphoto.com/id/1292093525/vector/young-woman-set-of-smiling-figures-and-poses-with-a-simple-touch.jpg?s=2048x2048&w=is&k=20&c=cWkKacvmQZSfWCvwSRKN6J-DAhCMtUAsLXq1OFloMD0=",
+  Love:"https://en.pimg.jp/047/072/977/1/47072977.jpg",
+  Hi:"https://media.istockphoto.com/id/1504101253/vector/greeting.jpg?s=612x612&w=is&k=20&c=xHC1SDKIQEZHVtphlIn72h9f-azq-waZ13_WWddYI88=",
+  Beautiful:"https://media.istockphoto.com/id/1906497107/vector/young-woman-showing-ok-sign-with-her-hands-vector-illustration-in-cartoon-style.jpg?s=2048x2048&w=is&k=20&c=97NcjO8lyQtn6rV6yquuasNJWJdiIvc8kY02Xz7drTs=",
+  Happy:"https://media.istockphoto.com/id/1487018410/vector/illustration-series-of-cute-people-female-office-worker-hurray.jpg?s=2048x2048&w=is&k=20&c=-l64E4Q4KbqU5v0GS3NgBLILte4qnYR3SHed3vRIB5c=",
+  Dance:"https://media.istockphoto.com/id/1485834901/vector/smiling-woman-point-up-at-good-deal.jpg?s=2048x2048&w=is&k=20&c=eWEtPl9Fqgb_t3KKkD2l8K-dxHsMlkHr6SgiplQQdd4=",
+  Stop:"https://media.istockphoto.com/id/1296834202/vector/stop-concept.jpg?s=2048x2048&w=is&k=20&c=V8yq03CCiZGROeJvRD1lj4f0vH9GyWywGIc0f4bp7-s=",
+  Fear:"https://img.freepik.com/free-vector/young-woman-resisted-with-both-hands-with-frightened-face_10045-806.jpg",
+  Bye:"https://media.istockphoto.com/id/2161927814/vector/boy-smiling-and-waving-goodbye-in-sign-language-little-kid-character-conveying-a-friendly.jpg?s=612x612&w=0&k=20&c=5QQgDGTmr9k23oodLcCizbVEBTDLrY8wuufe6mavgOA=",
+  Hug:"https://media.istockphoto.com/id/1816566515/vector/boy-shows-love-deaf-sign-language-international-symbol-gesture-for-children-social.jpg?s=612x612&w=0&k=20&c=nd05f82pniIv2AnifAl5yJg63Se-izDJEHVG4LgLo3Q=",
+  Want:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbZLzaK7NAEqYdNoZM0Y7583hS_3FKV59lyXFHj-UxGoAle4IJUevXZbKx-zLvE2E5swE&usqp=CAU",
+  Later:"https://media.istockphoto.com/id/2162043824/vector/young-woman-character-in-casual-clothing-using-american-sign-language-to-say-see-you-later.jpg?s=612x612&w=0&k=20&c=wu288h9PuhBwyNQhZZ6NmqSrLBQHmBmsaWo1cOEk17Q="
+ 
+
+
+};
+
+
+const words = document.querySelectorAll('.word');
+const modal = document.getElementById('imageModal');
+const modalImage = document.getElementById('modalImage');
+const closeModal = document.getElementById('closeModal');
+
+words.forEach(word => {
+  word.addEventListener('click', () => {
+    const selectedWord = word.dataset.word;
+    const imageUrl = wordImages[selectedWord];
+    if (imageUrl) {
+      modalImage.src = imageUrl;
+      modal.style.display = 'flex';
+    }
+  });
+});
+
+closeModal.addEventListener('click', () => {
+  modal.style.display = 'none';
+  modalImage.src = "";
+});
+
+// Optional: Close modal when clicking outside the image
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.style.display = 'none';
+    modalImage.src = "";
+  }
+});
+
+  </script>
+<style>
+
+
+    body {
+  font-family: Arial, sans-serif;
+  background: #def9e5;
+  margin: 20px;
+  text-align: center;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 5px;
+  opacity: 0;
+  transform: translateX(-100px);
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+h1 {
+  color: #333;
+}
+
+.word-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.word {
+  background-color: #452af3;
+  color: white;
+  padding: 15px 20px; /* Bigger padding */
+  font-size: 18px;     /* Larger text */
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  text-align: center;
+}
+
+.word:hover {
+  background-color: #091b5e;
+  transform: scale(1.1);
+}
+
+
+
+/* Fullscreen Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: red;
+}
+
+ /* Navbar */
+ .navbar {
+    background: #c8e6c9; /* Soft green from the image */
+    padding: 5px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+        .navbar .navbar-brand {
+            font-weight: bold;
+            color: black !important;
+            display: flex;
+            gap: 25px;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: bold;
+            color: black !important;
+            transition: 0.3s;
+            font-size: medium;
+            gap: 25px !important;
+            
+        }
+
+        .navbar-nav .nav-link:hover {
+            background: rgba(50, 205, 50, 0.3);
+            border-radius: 8px;
+        }
+
+        /* Dropdown */
+        .dropdown select {
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            background: #b2e3a8;
+            font-weight: bold;
+        }
+        .navbar-toggler {
+    margin-right: auto;
+  /* Pushes it to the right */
+}
+
+        @media (max-width: 991px) {
+    .navbar-collapse {
+        position: absolute;
+        top: 100%; /* Position it right below the navbar */
+        left: 0;
+        width: 50% !important;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        z-index: 1000; /* Ensure it stays above other content */
+        align-items: flex-end; /* Move items to the right */
+        text-align: left; /* Align text */
+        padding-left: 20px; /* Add some spacing */
+    }
+} 
+  </style>
+</body>
+
+</html>

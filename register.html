@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Learning App</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Registration Container */
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+
+/* Headings */
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Input Fields */
+.input-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #f8f9fa;
+}
+
+/* Register Button */
+.register-btn {
+    background-color: #4f46e5;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.register-btn:hover {
+    background-color: #4338ca;
+}
+
+/* Links */
+.links {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.links a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+</style>
+<body>
+
+    <div class="container">
+        <h2>SIGN UP TO OUR PLATFORM!</h2>
+
+        <form id="registerForm">
+            <div class="input-group">
+                <label for="name">What's your name?</label>
+                <input type="text" id="name" placeholder="Name" required>
+            </div>
+
+            <div class="input-group">
+                <label for="email">What's your e-mail?</label>
+                <input type="email" id="email" placeholder="E-mail" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Your password?</label>
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+
+            <div class="input-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="98xxxxxxxx" required>
+            </div>
+
+            <button id="register-btn" class="register-btn">Start your learning journey</button>
+        </form>
+
+        <p class="links">
+            <a href="loginpage.html">Sign in with your account</a> &nbsp; | &nbsp;
+            <a href="loginpage.html">Forgot your password?</a>
+        </p>
+    </div>
+
+</body>
+</html>

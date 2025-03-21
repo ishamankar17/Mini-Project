@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="product.css"> <!-- Link to your custom CSS file -->
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="index.html"><img src="C:\Users\Isha\OneDrive\Pictures\Screenshot 2024-07-03 182959.png" alt="Logo" height="40"> FashionFusion</a>
+    <style>
+        .navbar-brand {
+            font-family: '';
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #333;
+            text-transform: uppercase;
+        }
+    </style>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html"><i class="bi bi-house-fill"></i> Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="products.html"><i class="bi bi-ui-checks-grid"></i> Products <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html"><i class="bi bi-person-vcard-fill"></i> About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Orders.html"><i class="bi bi-handbag"></i> My Orders</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="bi bi-person-circle"></i> My Account
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="profile.html">Profile</a>
+                    <a class="dropdown-item" href="#">Settings</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Logout</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+        </form>
+    </div>
+</nav>
+<!-- Products Section -->
+<style>
+    .card {
+        margin: 15px;
+        width: 300px;
+        height: 450px;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-img-top {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+                        .btn-custom {
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 0.3rem; /* Reduced gap */
+                            padding: 0.25rem 0.5rem; /* Reduced padding */
+                            border: none;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            font-size: 0.875rem; /* Reduced font size */
+                            font-weight: 600;
+                        }
+                        .btn-cart {
+                            background-color: #28a745;
+                            color: white;
+                        }
+                        .btn-favorite {
+                            background-color: #dc3545;
+                            color: white;
+                        }
+                        .btn-custom i {
+                            font-size: 1rem; /* Reduced icon size */
+                        }
+                        .btn-custom:hover {
+                            opacity: 0.8;
+                        }
+                    
+</style>
+<div class="container mt-5">
+    <h1 class="text-center mb-4"></h1>
+
+    <!-- Product Cards -->
+    <div class="row">
+        <!-- Product 1 -->
+        <div class="col-md-4">
+            <div class="card" style="width: 200; height: 450px;">
+                <img src="https://5.imimg.com/data5/ANDROID/Default/2023/9/344693043/VL/AL/QP/36385897/product-jpeg-500x500.jpg" class="rounded float-start" class="card-img-top" alt="..." height="250px" width="300px">
+                <div class="card-body">
+                    <h5 class="card-title">Traditional Men's Kurta</h5>
+                    <p class="card-text">Rs.5,400</p>
+                    <p class="card-text">Traditional Kurta with Cotton Ethinic</p>
+                    <button class="btn-custom btn-cart">
+                        <i class="bi bi-cart-check-fill"></i> Details
+                    </button>
+                    <button class="btn-custom btn-favorite">
+                        <i class="bi bi-heart-fill"></i> Add to Favorites
+                    </button>
+
+                </div>
+            </div>
+        </div>
+        <!-- Product 2-->
+        <div class="col-md-4">
+            <div class="card" style="width: 200; height: 450px;">
+                <img src="https://5.imimg.com/data5/SELLER/Default/2022/4/WJ/JZ/FX/20801279/casual-dress-for-boy-kid.jpg" class="rounded float-start" class="card-img-top" alt="..." height="250px" width="300px">
+                <div class="card-body">
+                    <h5 class="card-title">Kids Coat</h5>
+                    <p class="card-text">Rs.1099</p>
+                    <p class="card-text">Pluto kids coat with TShirt.</p>
+                    
+                    <button class="btn-custom btn-cart">
+                        <i class="bi bi-cart-check-fill"></i> Details
+                    </button>
+                    <button class="btn-custom btn-favorite">
+                        <i class="bi bi-heart-fill"></i> Add to Favorites
+                    </button>
+
+                </div>
+            </div>
+        </div>
+            <!-- Product 3 -->
+            <div class="col-md-4">
+                <div class="card" style="width: 200; height: 450px;">
+                    <img src="https://static.wixstatic.com/media/4594f8_6f9a817c465e44f788aa21307f5057fb~mv2.jpg/v1/fill/w_480,h_638,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/4594f8_6f9a817c465e44f788aa21307f5057fb~mv2.jpg" class="rounded float-start" class="card-img-top" alt="..." height="260px" width="300px">
+                    <div class="card-body">
+                        <h5 class="card-title">Paithani Saree</h5>
+                        <p class="card-text">Rs.4,599</p>
+                        <p class="card-text">Dark Pink Paithani saree with Zari</p>
+                        <button class="btn-custom btn-cart">
+                            <i class="bi bi-cart-check-fill"></i> Details
+                        </button>
+                        <button class="btn-custom btn-favorite">
+                            <i class="bi bi-heart-fill"></i> Add to Favorites
+                        </button>
+    
+                    </div>
+                </div>
+            </div> 
+    <!-- Product 4 -->
+    <div class="col-md-4">
+        <div class="card" style="width: 200; height: 450px;">
+            <img src="https://m.media-amazon.com/images/I/717jugkV07L._AC_UY1100_.jpg" class="rounded float-start" class="card-img-top" alt="..." height="260px" width="250px">
+            <div class="card-body">
+                <h5 class="card-title">Party wear Gown</h5>
+                <p class="card-text">Rs.1,500</p>
+                <p class="card-text">Long Gown| Designer Gown| Green</p>
+                <button class="btn-custom btn-cart">
+                    <i class="bi bi-cart-check-fill"></i> Details
+                </button>
+                <button class="btn-custom btn-favorite">
+                    <i class="bi bi-heart-fill"></i> Add to Favorites
+                </button>
+
+            </div>
+        </div>
+    </div>
+    <!-- Product 6 -->
+    <div class="col-md-4">
+        <div class="card" style="width: 200; height: 450px;">
+            <img src="https://tiimg.tistatic.com/fp/1/005/468/ladies-sea-green-short-one-piece-dress-186.jpg" class="rounded float-start" class="card-img-top" alt="..." height="250px" width="300px">
+            <div class="card-body">
+                <h5 class="card-title">Short OnePeace</h5>
+                <p class="card-text">Rs.799</p>
+                <p class="card-text">Green Organic Dress Peacock Shade</p>
+                <button class="btn-custom btn-cart">
+                    <i class="bi bi-cart-check-fill"></i> Details
+                </button>
+                <button class="btn-custom btn-favorite">
+                    <i class="bi bi-heart-fill"></i> Add to Favorites
+                </button>
+
+            </div>
+        </div>
+    </div>
+    <!-- Product 7 -->
+    <div class="col-md-4">
+        <div class="card" style="width: 200; height: 450px;">
+            <img src="https://storage.googleapis.com/shy-pub/352617/new-bodycon-fancy-one-piece-dress-20-1707724998329_SKU-1146_0.jpg" class="rounded float-start" class="card-img-top" alt="..." height="250px" width="300px">
+            <div class="card-body">
+                <h5 class="card-title">Trendy OnePeace</h5>
+                <p class="card-text">Rs.4,599</p>
+                <p class="card-text">Cream White with Designer craft</p>
+                <button class="btn-custom btn-cart">
+                    <i class="bi bi-cart-check-fill"></i> Details
+                </button>
+                <button class="btn-custom btn-favorite">
+                    <i class="bi bi-heart-fill"></i> Add to Favorites
+                </button>
+
+            </div>
+        </div>
+    </div>
+    <!-- Product 8 -->
+    <div class="col-md-4">
+        <div class="card" style="width: 200; height: 450px;">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230602/0tkP/647953b8d55b7d0c633b4c48/-473Wx593H-462123324-indigo-MODEL3.jpg" class="rounded float-start" class="card-img-top" alt="..." height="250px" width="300px">
+            <div class="card-body">
+                <h5 class="card-title">Women Top</h5>
+                <p class="card-text">Rs.459</p>
+                <p class="card-text">New Fashion Top| Blue</p>
+                <button class="btn-custom btn-cart">
+                    <i class="bi bi-cart-check-fill"></i> Details
+                </button>
+                <button class="btn-custom btn-favorite">
+                    <i class="bi bi-heart-fill"></i> Add to Favorites
+                </button>
+
+            </div>
+        </div>
+    </div>
+    <!-- Product 9 -->
+    <div class="col-md-4">
+        <div class="card" style="width: 200; height: 450px;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8et7iuGIMxJhSxVqf-Af_v-b_PUcM9HcTBwALoo2HnXzfQ3PaRlm7SWGvnrNsstvCOKE&usqp=CAU" class="rounded float-start" class="card-img-top" alt="..." height="250px" width="300px">
+            <div class="card-body">
+                <h5 class="card-title">Plain Girls Net Frock</h5>
+                <p class="card-text">Rs.5000</p>
+                <p class="card-text">Snow White Princess pretty frock</p>
+                <button class="btn-custom btn-cart">
+                    <i class="bi bi-cart-check-fill"></i> Details
+                </button>
+                <button class="btn-custom btn-favorite">
+                    <i class="bi bi-heart-fill"></i> Add to Favorites
+                </button>
+
+            </div>
+        </div>
+    </div>
+    <!-- Product 9 -->
+    <div class="col-md-4">
+        <div class="card" style="width: 200; height: 450px;">
+            <img src="https://rukminim2.flixcart.com/image/850/1000/xif0q/t-shirt/o/7/1/l-new-fashion-lamate-fashion-original-imagq8c4ymyeh5zg.jpeg?q=90&crop=false" class="rounded float-start" class="card-img-top" alt="..." height="250px" width="300px">
+            <div class="card-body">
+                <h5 class="card-title">Men's TShirt</h5>
+                <p class="card-text">Rs.590</p>
+                <p class="card-text">Full Slives Trendy Tshirt.</p>
+                <button class="btn-custom btn-cart">
+                    <i class="bi bi-cart-check-fill"></i> Details
+                </button>
+                <button class="btn-custom btn-favorite">
+                    <i class="bi bi-heart-fill"></i> Add to Favorites
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Spinner -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5 text-center">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden"></span>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+</body>
+<!-- Modals for Product Details -->
+<!-- Product 1 Modal -->
+<div class="modal fade" id="product1Modal" tabindex="-1" aria-labelledby="product1ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="product1ModalLabel">Product 1 Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Price:</strong> $19.99</p>
+                <p><strong>Description:</strong> Description of Product 1.</p>
+                <p><strong>Additional Details:</strong> Size: S, M, L | Color: Red, Blue</p>
+                <!-- Order button -->
+                <button type="button" class="btn btn-success btn-block mt-3">Order Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Product 2 Modal -->
+<div class="modal fade" id="product2Modal" tabindex="-1" aria-labelledby="product2ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="product2ModalLabel">Product 2 Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Price:</strong> $29.99</p>
+                <p><strong>Description:</strong> Description of Product 2.</p>
+                <p><strong>Additional Details:</strong> Size: S, M | Color: Black, White, Gray</p>
+                <!-- Order button -->
+                <button type="button" class="btn btn-success btn-block mt-3">Order Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Product 3 Modal -->
+<div class="modal fade" id="product3Modal" tabindex="-1" aria-labelledby="product3ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="product3ModalLabel">Product 3 Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Price:</strong> $39.99</p>
+                <p><strong>Description:</strong> Description of Product 3.</p>
+                <p><strong>Additional Details:</strong> Material: Leather, Metal</p>
+                <!-- Order button -->
+                <button type="button" class="btn btn-success btn-block mt-3">Order Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and custom script if needed -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

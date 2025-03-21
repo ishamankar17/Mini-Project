@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - LemonPie</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="register.html">
+    
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo">
+            <img src="https://i.pinimg.com/1200x/fb/29/b0/fb29b0cb50dde9e86e4bcb68c15fa9ed.jpg" alt="LemonPie Logo">
+        </div>
+
+        <h2>Welcome! Learning app for deaf and mute.</h2>
+        <p class="subtitle">Keep your data safe</p>
+
+        <form id="loginForm">
+            <div class="input-group">
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <a href="Homeapp.html"> 
+            <button id="login-btn" class="login-btn">LOGIN</button>
+        </a>
+        </form>
+
+        <p class="forgot-password"><a href="#">Forgot password?</a></p>
+
+        <p class="Sign Up">Don't have an account? <a id="register-btn" href="#">Sign Up</a></p>
+    </div>
+
+    <script src="scriptHome.js"></script>
+</body>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("login-btn").addEventListener("click", function (event) {
+            event.preventDefault();
+
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Email validation pattern
+            let passwordPattern = /^.{6,}$/; // Password should be at least 6 characters
+
+            if (!emailPattern.test(email)) {
+                alert("Invalid email format. Please enter a valid email.");
+                return;
+            }
+
+            if (!passwordPattern.test(password)) {
+                alert("Password must be at least 6 characters long.");
+                return;
+            }
+
+            alert("Login successful! Redirecting to home page...");
+            window.location.href = "Homeapp.html"; // Redirect to home page
+        });
+
+        document.getElementById("register-btn").addEventListener("click", function () {
+            window.location.href = "register.html"; // Redirect to Registration Page
+        });
+    });
+</script>
+
+</html>

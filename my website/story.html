@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Lost Girl</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="story-container">
+    <h1 class="title">The Lost Girl</h1>
+    
+    <div class="scene">
+      <!-- Image and text for scene 1 -->
+      <img src="https://i.imgur.com/8mv1MzR.jpg" alt="Dark Forest" class="scene-img fade-move">
+      <p class="fade-in hover-text">Once upon a time, there was a little girl who wandered into a deep, dark forest...</p>
+
+      <!-- Image and text for scene 2 -->
+      <img src="https://i.imgur.com/1gfUKTi.jpg" alt="Whispering Trees" class="scene-img fade-move delay1">
+      <p class="fade-in delay1 hover-text">The trees whispered around her, and the path became unclear...</p>
+
+      <!-- Image and text for scene 3 -->
+      <img src="https://i.imgur.com/eXUR5HM.jpg" alt="Light in Distance" class="scene-img fade-move delay2">
+      <p class="fade-in delay2 hover-text">She felt lost and scared, but then a bright light appeared in the distance...</p>
+
+      <!-- Image and text for scene 4 -->
+      <img src="https://i.imgur.com/J88NMSy.jpg" alt="Girl Following Light" class="scene-img fade-move delay3">
+      <p class="fade-in delay3 hover-text">The light danced and moved, as if inviting her to follow...</p>
+
+      <!-- Final line -->
+      <p class="fade-in delay4 hover-text">Gathering her courage, she followed the light, hoping it would guide her home...</p>
+    </div>
+    <button class="continue-btn" onclick="nextScene()">Next</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+<style>
+  /* General styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #6a89cc, #b8e994);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: auto;
+  color: #34495e;
+}
+
+.story-container {
+  max-width: 700px;
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin: 20px;
+}
+
+h1.title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #e74c3c;
+  animation: titleAnimation 2s ease-in-out infinite alternate;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes titleAnimation {
+  from { transform: scale(1); color: #e74c3c; }
+  to { transform: scale(1.1); color: #c0392b; }
+}
+
+.scene p {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.7s ease-in-out;
+}
+
+.scene-img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 1s forwards;
+}
+
+.fade-move {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Delays for fade-in animations */
+.delay1 { animation-delay: 1s; }
+.delay2 { animation-delay: 2s; }
+.delay3 { animation-delay: 3s; }
+.delay4 { animation-delay: 4s; }
+
+/* Hover effect for text */
+.hover-text:hover {
+  color: #e67e22;
+  transform: scale(1.05);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Button styling */
+button.continue-btn {
+  background-color: #27ae60;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  animation: fadeIn 2s ease-in-out 5s forwards;
+  opacity: 0;
+}
+
+button.continue-btn:hover {
+  background-color: #2ecc71;
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .story-container {
+    max-width: 90%;
+    padding: 15px;
+  }
+  h1.title {
+    font-size: 2.5rem;
+  }
+  .scene p {
+    font-size: 1rem;
+  }
+  button.continue-btn {
+    font-size: 1rem;
+  }
+}
+
+
+  </style>
+  <script>
+   let sceneIndex = 1;
+
+function nextScene() {
+  const scenes = [
+    {
+      text: "The girl walked deeper into the forest. The trees seemed to part for her as the light grew brighter...",
+      image: "https://i.imgur.com/6lXoCZ8.jpg",
+      delay: 1
+    },
+    {
+      text: "Suddenly, a voice echoed from the shadows: 'You must not follow that light...'",
+      image: "https://i.imgur.com/3MGdqBn.jpg",
+      delay: 2
+    },
+    {
+      text: "She hesitated, but something about the light felt safe, comforting...",
+      image: "https://i.imgur.com/7Qs0NkP.jpg",
+      delay: 3
+    },
+    {
+      text: "Gathering her strength, she continued onward, trusting the light to lead her home...",
+      image: "https://i.imgur.com/LXHUSUB.jpg",
+      delay: 4
+    }
+  ];
+
+  if (sceneIndex < scenes.length) {
+    const sceneContainer = document.querySelector('.scene');
+    
+    // Create a new image and text paragraph for each scene
+    const newImage = document.createElement('img');
+    newImage.src = scenes[sceneIndex].image;
+    newImage.alt = "Scene Image";
+    newImage.classList.add('scene-img', 'fade-move');
+    newImage.style.transitionDelay = scenes[sceneIndex].delay + 's';
+    sceneContainer.appendChild(newImage);
+    
+    const newParagraph = document.createElement('p');
+    newParagraph.classList.add('fade-in', 'hover-text');
+    newParagraph.style.animationDelay = scenes[sceneIndex].delay + 's';
+    newParagraph.textContent = scenes[sceneIndex].text;
+    sceneContainer.appendChild(newParagraph);
+    
+    sceneIndex++;
+  } else {
+    alert('End of Story');
+  }
+}
+
+    </script>
+</html>

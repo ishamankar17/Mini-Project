@@ -1,0 +1,78 @@
+body {
+    padding-top: 56px; /* Offset for the fixed navbar */
+    background-color:  #e1e0eb; 
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    margin-right: 10px;
+}
+
+.navbar-nav {
+    margin-left: auto; /* Align the navbar items to the right */
+}
+
+.navbar-nav .nav-item .nav-link {
+    padding: 10px 15px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    background-color: #555;
+    color: #fff;
+    border-radius: 5px;
+    transform: scale(1.1);
+}
+
+.navbar-nav .dropdown-menu .dropdown-item {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-nav .dropdown-menu .dropdown-item:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+.form-inline {
+    margin-right: 20px; /* Add some space between the search form and the nav items */
+}
+
+.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show > .nav-link {
+    color: #ffffff;
+    background-color: #343a40;
+    border-radius: 5px;
+}
+
+.navbar-dark .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 991.98px) {
+    .navbar-nav {
+        margin-top: 10px;
+    }
+    
+    .form-inline {
+        margin-bottom: 10px;
+    }
+}
+
+.card {
+    margin-top: 20px;
+}
+
+.form-check-input[disabled] + .form-check-label {
+    color: #6c757d; /* Disabled checkbox label color */
+}
+
+#editBtn {
+    margin-top: 10px;
+}
+
+#saveBtn {
+    margin-top: 10px;
+}

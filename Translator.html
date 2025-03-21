@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+       
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Bundle with Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <title>English to Hindi Sign Language Translator</title>
+    <style>
+      
+    body {
+        background-color: #def9e5;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    h1 {
+        margin-top: 20px;
+    }
+    input, button {
+        padding: 10px;
+        margin: 10px;
+        font-size: 16px;
+    }
+    #translation {
+        margin-top: 15px;
+        color: rgb(46, 7, 165);
+        font-size: 25px;
+    }
+    #error {
+        color: red;
+    }
+
+    /* Centering container for video and camera */
+    .center-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    video {
+        width: 400px;
+        height: auto;
+        border: 2px solid #333;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        margin: 10px 0;
+    }
+
+    #cameraVideo {
+        display: none;
+        border: 2px dashed #555;
+    }
+
+    #result {
+        margin-top: 10px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+      /* Navbar */
+   .navbar {
+    background: #c8e6c9; /* Soft green from the image */
+    padding: 5px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+        .navbar .navbar-brand {
+            font-weight: bold;
+            color: black !important;
+            display: flex;
+            gap: 25px;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: bold;
+            color: black !important;
+            transition: 0.3s;
+            font-size: medium;
+            gap: 25px !important;
+            
+        }
+
+        .navbar-nav .nav-link:hover {
+            background: rgba(50, 205, 50, 0.3);
+            border-radius: 8px;
+        }
+
+        /* Dropdown */
+        .dropdown select {
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            background: #b2e3a8;
+            font-weight: bold;
+        }
+        .navbar-toggler {
+    margin-right: auto;
+  /* Pushes it to the right */
+}
+
+        @media (max-width: 991px) {
+    .navbar-collapse {
+        position: absolute;
+        top: 100%; /* Position it right below the navbar */
+        left: 0;
+        width: 50% !important;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        z-index: 1000; /* Ensure it stays above other content */
+        align-items: flex-end; /* Move items to the right */
+        text-align: left; /* Align text */
+        padding-left: 20px; /* Add some spacing */
+    }
+} 
+</style>
+</head>
+<body>
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item me-3"><a class="nav-link" href="Homeapp.html">Home <i class="bi bi-house"></i></a></li>
+            <li class="nav-item me-3"><a class="nav-link" href="LearnISL.html">Learn ISL <i class="bi bi-alphabet-uppercase"></i></a></li>
+            <li class="nav-item me-3"><a class="nav-link" href="LearnNumber.html">Learn Numbers <i class="bi bi-list-ol"></i></a></li>
+            <li class="nav-item me-3"><a class=" nav-link" href=" http://127.0.0.1:5000">Translator <i class="bi bi-translate"></i></a></li>
+            <li class="nav-item me-3"><a class="nav-link" href="Aboutusapp.html">About Us <i class="bi bi-file-earmark-person-fill"></i></a></li>
+            <li class="nav-item me-3"><a class="nav-link" href="Contactpage.html">Contact <i class="bi bi-person-lines-fill"></i></a></li>
+            <li class="nav-item dropdown">
+                <select id="languageSelect">
+                    <option value="en">English</option>
+                    <option value="hi">Hindi</option>
+                </select>
+            </li>
+        </ul>
+    </div>
+</nav>
+<body>
+    <h1>English to Hindi Sign Language Translator</h1>
+    <input type="text" id="wordInput" placeholder="Enter a word" class="animated-input">
+    <button onclick="translateWord()" class="animated-button">Translate</button>
+
+
+    <div id="translation"></div>
+
+    <video id="signVideo" controls style="display:none;">
+        <source id="videoSource" src="" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div id="cameraSection" style="display:none;">
+        <button onclick="startCamera()">Try with Camera</button>
+        <video id="cameraVideo" autoplay></video>
+        <br>
+        <button onclick="verifyGesture()">Verify Gesture</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        let currentWord = "";
+
+        function translateWord() {
+            const word = document.getElementById('wordInput').value.trim();
+            if (word === '') {
+                alert('Please enter a word.');
+                return;
+            }
+
+            currentWord = word;
+
+            fetch(`/translate?word=${word}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById('translation').innerHTML = "<span id='error'>Translation failed.</span>";
+                        document.getElementById('signVideo').style.display = 'none';
+                        document.getElementById('cameraSection').style.display = 'none';
+                    } else {
+                        document.getElementById('translation').innerHTML = `Hindi: ${data.hindi}`;
+                        const videoElement = document.getElementById('signVideo');
+                        const videoSource = document.getElementById('videoSource');
+                        videoSource.src = data.video_url;
+                        videoElement.load();
+                        videoElement.style.display = 'block';
+
+                        // Show camera section
+                        document.getElementById('cameraSection').style.display = 'block';
+                        document.getElementById('result').innerHTML = '';
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    document.getElementById('translation').innerHTML = "<span id='error'>Error occurred.</span>";
+                    document.getElementById('signVideo').style.display = 'none';
+                    document.getElementById('cameraSection').style.display = 'none';
+                });
+        }
+
+        function startCamera() {
+            const video = document.getElementById('cameraVideo');
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => {
+                    video.srcObject = stream;
+                    video.style.display = 'block';
+                })
+                .catch(err => {
+                    console.error("Camera error:", err);
+                    alert("Camera access denied.");
+                });
+        }
+
+        function verifyGesture() {
+            fetch(`/verify?word=${currentWord}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.match) {
+                        document.getElementById('result').innerHTML = "✅ Correct gesture!";
+                        document.getElementById('result').style.color = "green";
+                    } else {
+                        document.getElementById('result').innerHTML = "❌ Try again!";
+                        document.getElementById('result').style.color = "red";
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    document.getElementById('result').innerHTML = "Error verifying gesture.";
+                    document.getElementById('result').style.color = "red";
+                });
+        }
+    </script>
+
+<style>
+    body {
+        background-color: #eaf6fb;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        margin-top: 20px;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    input.animated-input {
+        padding: 10px;
+        margin: 10px;
+        font-size: 16px;
+        border: 2px solid #0077cc;
+        border-radius: 5px;
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+        animation: slideIn 1s ease-out;
+    }
+
+    input.animated-input:focus {
+        box-shadow: 0 0 8px #0077cc;
+        transform: scale(1.05);
+    }
+
+    button.animated-button {
+        padding: 10px 20px;
+        margin: 10px;
+        font-size: 16px;
+        background-color: #0077cc;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        animation: bounceIn 1.5s ease;
+    }
+
+    button.animated-button:hover {
+        background-color: #005fa3;
+        transform: scale(1.1);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+        from { transform: translateX(-100px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes bounceIn {
+        0% { transform: scale(0.5); opacity: 0; }
+        60% { transform: scale(1.2); opacity: 1; }
+        100% { transform: scale(1); }
+    }
+
+   
+    /* Center everything inside the camera section */
+    #cameraSection {
+        margin-top: 30px;
+        text-align: center;
+        animation: fadeIn 1.5s ease-in-out;
+    }
+
+    /* Animate buttons in camera section */
+    #cameraSection button {
+        padding: 10px 20px;
+        margin: 10px;
+        font-size: 16px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        animation: bounceIn 1.5s ease;
+    }
+
+    #cameraSection button:hover {
+        background-color: #218838;
+        transform: scale(1.1);
+    }
+
+    /* Style and animate the video element */
+    #cameraVideo {
+        width: 500px;
+        height: auto;
+        margin-top: 15px;
+        border: 3px solid #0077cc;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        animation: slideUp 1s ease-out;
+    }
+
+    /* Style the verification result */
+    #result {
+        margin-top: 15px;
+        font-weight: bold;
+        font-size: 18px;
+        color: #333;
+    }
+
+    /* Reuse animations */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes bounceIn {
+        0% { transform: scale(0.5); opacity: 0; }
+        60% { transform: scale(1.2); opacity: 1; }
+        100% { transform: scale(1); }
+    }
+
+    @keyframes slideUp {
+        from { transform: translateY(100px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+
+</style>
+
+</body>
+</html>

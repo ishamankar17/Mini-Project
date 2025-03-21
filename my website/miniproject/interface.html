@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - LemonPie</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo">
+            <img src="https://i.pinimg.com/1200x/fb/29/b0/fb29b0cb50dde9e86e4bcb68c15fa9ed.jpg" alt="LemonPie Logo">
+        </div>
+
+        <h2>Welcome! Learning app for deaf and mute.</h2>
+        <p class="subtitle">Keep your data safe</p>
+
+        <form>
+            <div class="input-group">
+                <input type="email" placeholder="Email" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="password" placeholder="Password" required>
+                <span class="eye-icon">👁️</span>
+            </div>
+
+            <button id="login-btn" class="login-btn">LOGIN</button>
+        </form>
+
+        <p class="forgot-password"><a href="#">Forgot password?</a></p>
+
+        <p class="register">Don't have an account? <a id="register-btn" href="#">Register</a></p>
+
+        <p class="skip"><a id="skip-btn" href="frontaappp.html">Skip</a></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #fff;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 350px;
+    background: #fff;
+    text-align: center;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo */
+.logo img {
+    width: 200px;
+   
+}
+.logo {
+    display: block;
+    max-width: 200px; /* Adjust size as needed */
+    height: auto; /* Maintains aspect ratio */
+    margin: 0 auto ; /* Centers the logo */
+}
+
+
+/* Titles */
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+.input-group {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* Eye Icon */
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* Login Button */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #ffcc00;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    background: #ffdb4d;
+}
+
+/* Links */
+.forgot-password, .register, .skip {
+    margin-top: 10px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #ff9900;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+/* Skip Button */
+.skip a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #000;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.skip a:hover {
+    background: #333;
+    text-decoration: none;
+}
+
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    // Handle Login Button Click
+    document.getElementById("login-btn").addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = "app.html"; // Redirect to App Page
+    });
+
+    // Handle Skip Button Click
+    document.getElementById("skip-btn").addEventListener("click", function () {
+        window.location.href = "app.html"; // Redirect to App Page
+    });
+
+    // Handle Register Button Click
+    document.getElementById("register-btn").addEventListener("click", function () {
+        window.location.href = "register.html"; // Redirect to Registration Page
+    });
+});
+
+</script>
+</html>

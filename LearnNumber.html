@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASL Number Learning App</title>
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #def9e5;
+      color: #131313;
+      text-align: center;
+      padding-top: 70px;
+      opacity: 0;
+      transform: translateX(-100px);
+      animation: slideInLeft 0.8s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+    .navbar {
+      background: #c8e6c9;
+      padding: 10px 0;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      font-weight: bold;
+      color: black !important;
+    }
+    .navbar-nav .nav-link {
+        font-weight: bold;
+        color: black !important;
+        transition: 0.3s;
+        font-size: medium;
+        
+    }
+    .navbar-nav .nav-link:hover {
+            background: rgba(50, 205, 50, 0.3);
+            border-radius: 10px;
+        }
+    .container {
+      max-width: 90%;
+      width: 400px;
+      margin: auto;
+      padding: 40px;
+      background: rgb(168, 218, 203);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 12px;
+      margin-top: 100px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .input-section {
+      margin-bottom: 20px;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #ff5722;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #983311;
+    }
+
+    .image-section {
+      margin-top: 20px;
+    }
+
+    .asl-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    /* Dropdown */
+    .dropdown select {
+        padding: 8px;
+        border-radius: 5px;
+        border: none;
+        background: #b2e3a8;
+        font-weight: bold;
+    }
+    
+    @media (max-width: 991px) {
+    .navbar-collapse {
+        position: absolute;
+        top: 100%; /* Position it right below the navbar */
+        left: 0;
+        width: 50% !important;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        z-index: 1000; /* Ensure it stays above other content */
+        align-items: flex-end; /* Move items to the right */
+        text-align: left; /* Align text */
+        padding-left: 20px; /* Add some spacing */
+        
+    }
+} 
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item me-3"><a class="nav-link" href="Homeapp.html">Home <i class="bi bi-house"></i></a></li>
+            <li class="nav-item me-3"><a class="nav-link" href="LearnISL.html">Learn ISL <i class="bi bi-alphabet-uppercase"></i></a></li>
+            <li class="nav-item me-3"><a class="nav-link" href="LearnNumber.html">Learn Numbers <i class="bi bi-list-ol"></i></a></li>
+            <li class="nav-item me-3"><a class="nav-link" href="#translator">Translator <i class="bi bi-translate"></i></a></li>
+            <li class="nav-item me-3"><a class="nav-link" href="Aboutusapp.html">About Us <i class="bi bi-file-earmark-person-fill"></i></a></li>
+            <li class="nav-item me-3"><a class="nav-link" href="Contactpage.html">Contact <i class="bi bi-person-lines-fill"></i></a></li>
+            <li class="nav-item dropdown">
+                <select id="languageSelect">
+                    <option value="en">English</option>
+                    <option value="hi">Hindi</option>
+                </select>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+  <h1>Learn ISL Numbers (1 to 10)</h1>
+  <div class="input-section">
+    <label for="numberInput">Enter a number (1-10):</label><br />
+    <input type="number" id="numberInput" min="1" max="10" placeholder="1" />
+    <button onclick="showASLImage()">Show ISL Sign</button>
+  </div>
+  <div class="image-section" id="imageSection">
+    <p class="no-image">Enter a number to see the ISL sign!</p>
+  </div>
+</div>
+
+<script>
+  const numberData = [
+    { number: 1, imgUrl: "https://www.lifeprint.com/asl101/signjpegs/numbers/number01.jpg" },
+    { number: 2, imgUrl: "https://www.lifeprint.com/asl101/signjpegs/numbers/number02.jpg" },
+    { number: 3, imgUrl: "https://www.lifeprint.com/asl101/signjpegs/numbers/number03.jpg" },
+    { number: 4, imgUrl: "https://www.lifeprint.com/asl101/signjpegs/numbers/number04.jpg" },
+    { number: 5, imgUrl: "https://www.lifeprint.com/asl101/signjpegs/numbers/number05.jpg" },
+    { number: 6, imgUrl: "https://www.lifeprint.com/asl101/signjpegs/numbers/number06.jpg" },
+    { number: 7, imgUrl: "https://www.lifeprint.com/asl101/signjpegs/numbers/number07.jpg" },
+    { number: 8, imgUrl: "https://www.lifeprint.com/asl101/signjpegs/numbers/number08.jpg" },
+    { number: 9, imgUrl: "https://www.lifeprint.com/asl101/signjpegs/numbers/number09.jpg" },
+    { number: 10, imgUrl: "https://www.lifeprint.com/asl101/gifs-animated/10.gif" }
+  ];
+
+  function showASLImage() {
+    const numberInput = document.getElementById('numberInput').value;
+    const imageSection = document.getElementById('imageSection');
+    const numberItem = numberData.find(item => item.number == numberInput);
+    
+    imageSection.innerHTML = numberItem 
+      ? `<img src="${numberItem.imgUrl}" alt="ASL Number ${numberItem.number}" class="asl-image" /><p>ISL Sign for Number ${numberItem.number}</p>` 
+      : `<p class="no-image">Please enter a valid number between 1 and 10.</p>`;
+  }
+</script>
+</body>
+</html>

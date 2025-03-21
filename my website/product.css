@@ -1,0 +1,145 @@
+body {
+    padding-top: 10px; /* Offset for the fixed navbar */
+    background-color:  #e1e0eb; 
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    margin-right: 10px;
+}
+
+.navbar-nav {
+    margin-left: auto; /* Align the navbar items to the right */
+}
+
+.navbar-nav .nav-item .nav-link {
+    padding: 10px 15px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    background-color: #555;
+    color: #fff;
+    border-radius: 5px;
+    transform: scale(1.1);
+}
+
+.navbar-nav .dropdown-menu .dropdown-item {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-nav .dropdown-menu .dropdown-item:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+.form-inline {
+    margin-right: 20px; /* Add some space between the search form and the nav items */
+}
+
+.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show > .nav-link {
+    color: #ffffff;
+    background-color: #343a40;
+    border-radius: 5px;
+}
+
+.navbar-dark .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 991.98px) {
+    .navbar-nav {
+        margin-top: 10px;
+    }
+    
+    .form-inline {
+        margin-bottom: 10px;
+    }
+}
+
+
+
+/* Products Section */
+.container {
+    padding-top: 2px; /* Space from top due to fixed navbar */
+}
+
+.card {
+    transition: transform 0.3s ease; /* Optional: Smooth card hover effect */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Optional: Lift card on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Add a subtle shadow on hover */
+}
+
+.card-img-top {
+ /* Height of product image */
+    object-fit: cover; /* Optional: Maintain aspect ratio */
+}
+
+.card-title {
+    font-size: 1.25rem; /* Optional: Larger font size for title */
+    margin-bottom: 0.75rem; /* Optional: Space below title */
+}
+
+.card-text {
+    color: #6c757d; /* Optional: Text color for description */
+}
+/* Add some padding to the container */
+.container {
+    padding: 10px;
+}
+
+/* Ensure all images fit properly inside the cards */
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Set card sizes and add a hover effect */
+.product-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Add some margin at the bottom of each card */
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+/* Modals */
+.modal-title {
+    font-size: 1.5rem; /* Modal title font size */
+    font-weight: bold; /* Optional: Bold modal title */
+}
+
+.modal-body p {
+    margin-bottom: 0.5rem; /* Optional: Space between paragraphs */
+}
+
+.modal-body button {
+    width: 100%; /* Full width for order button */
+    margin-top: 1rem; /* Optional: Space above button */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column; /* Optional: Stack nav links vertically on smaller screens */
+    }
+
+    .form-inline .form-control {
+        width: 100%; /* Full width search input on smaller screens */
+        margin-bottom: 10px; /* Optional: Space below search input */
+    }
+}

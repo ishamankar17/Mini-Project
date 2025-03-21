@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion_Fusion</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+   <!-- Navigation Bar -->
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="index.html"><img src="C:\Users\Isha\OneDrive\Pictures\Screenshot 2024-07-03 182959.png" alt="Logo" height="40" style="font-family: poppins;"> FashionFusion</a>
+    <style>
+        .navbar-brand {
+            font-family: '';
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #333;
+            text-transform: uppercase;
+        }
+    </style>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html"><i class="bi bi-house-fill"></i> Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="products.html"><i class="bi bi-ui-checks-grid"></i> Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html"><i class="bi bi-person-vcard-fill"></i> About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Orders.html"><i class="bi bi-handbag"></i> My Orders</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="frontchatt.html"><i class="bi bi-handbag"></i> Let's Chat</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="bi bi-person-circle"></i> My Account
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="profile.html">Profile</a>
+                    
+                    <a class="dropdown-item" href="settings.html">Settings</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Logout</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+        </form>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <header class="hero bg-primary text-white text-center py-5">
+        <div class="container">
+            <h1>Welcome to FashionFusion</h1>
+            <p>Your one-stop shop for all your needs.</p>
+            <a href="products.html#all-products" class="btn btn-light">Shop Now</a>
+        </div>
+    </header>
+
+    <!-- All Products Section -->
+    <div class="container mt-5" id="all-products">
+        <h1 class="text-center"></h1>
+        <div class="row">
+            <!-- Electronics Category -->
+            <div class="col-md-4 mb-4">
+                <h3 class="text-center" style="font-size: 25px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"><i class="bi bi-person-standing"></i>Men</h3>
+                <div class="card" style="width: 320px; height: 480px;">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="1000">
+                        <ol class="carousel-indicators">
+                          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img class="d-block" src="https://img4.dhresource.com/webp/m/0x0/f3/albu/km/y/28/743652b5-8130-4ceb-96d9-f384a282b073.jpg" alt="First slide" width="320px" height="300px">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block" src="https://i.pinimg.com/236x/a0/29/40/a02940448a56474be417c7040732b254.jpg" alt="Second slide" width="320px" height="300px">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block" src="https://i.pinimg.com/474x/f8/13/d6/f813d6b033ffd7ed4f2b2aaf8a03565a.jpg" alt="Third slide" width="320px" height="300px">
+                          </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Mens Wear</h5>
+                        <p class="card-text">Make every outfit count</p>
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#product1Modal">View Details</a>
+                        <a href="#" class="btn btn-success">Order</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Clothing Category -->
+            <div class="col-md-4 mb-4">
+                <h3 class="text-center" style="font-size: 25px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"> <i class="bi bi-person-standing-dress"></i>Women</h3>
+                <div class="card" style="width: 320px; height: 480px;">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="2000">
+                        <ol class="carousel-indicators">
+                          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img class="d-block" src="https://m.media-amazon.com/images/I/41En7nxzrCL._AC_UY1100_.jpg" alt="First slide" width="320px" height="300px">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block" src="https://medias.utsavfashion.com/media/catalog/product/cache/1/small_image/295x/040ec09b1e35df139433887a97daa66f/w/o/woven-art-silk-saree-in-black-v1-scga310.jpg" alt="Second slide" width="320px" height="300px">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block" src="https://palkhifashion.com/cdn/shop/collections/Captivating_Teal_Green_Indian_Designer_Outfit_With_Silk_Dupatta_1.jpg" alt="Third slide" width="320px" height="300px">
+                          </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Womens Wear</h5>
+                        <p class="card-text">Dress to express.</p>
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#product2Modal">View Details</a>
+                        <a href="#" class="btn btn-success">Order</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Accessories Category -->
+            <div class="col-md-4 mb-4">
+                <h3 class="text-center" style="font-size: 25px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"><i class="bi bi-person-arms-up"></i>Kids</h3>
+                <div class="card" style="width: 320px; height: 480px;">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="2000">
+                        <ol class="carousel-indicators">
+                          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img class="d-block" src="https://www.jiomart.com/images/product/original/rvhr0ukrhf/fashion-dream-girls-dark-green-foil-printed-crepe-pack-of-1-frock-product-images-rvhr0ukrhf-2-202302140704.jpg" alt="First slide" width="320px" height="300px">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block" src="https://m.media-amazon.com/images/I/81M7l+jjbXL._AC_UY1100_.jpg" alt="Second slide" width="320px" height="300px">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block" src="https://img.kwcdn.com/product/fancy/694ab1db-1ca8-4811-b49a-d69f1268c330.jpg" alt="Third slide" width="320px" height="300px">
+                          </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Kids Wear</h5>
+                        <p class="card-text">I am the main character.</p>
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#product3Modal">View Details</a>
+                        <a href="#" class="btn btn-success">Order</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more product categories as needed -->
+        </div>
+    </div>
+
+    <!-- Modals for Product Details -->
+    <!-- Product 1 Modal -->
+    <div class="modal fade" id="product1Modal" tabindex="-1" aria-labelledby="product1ModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="product1ModalLabel">Product 1 Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Price:</strong> $19.99</p>
+                    <p><strong>Description:</strong> High-quality electronic product.</p>
+                    <p><strong>Features:</strong> Feature 1, Feature 2, Feature 3.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product 2 Modal -->
+    <div class="modal fade" id="product2Modal" tabindex="-1" aria-labelledby="product2ModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="product2ModalLabel">Product 2 Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Price:</strong> $29.99</p>
+                    <p><strong>Description:</strong> Stylish and comfortable clothing.</p>
+                    <p><strong>Sizes Available:</strong> S, M, L, XL.</p>
+                    <p><strong>Colors Available:</strong> Red, Blue, Green.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product 3 Modal -->
+    <div class="modal fade" id="product3Modal" tabindex="-1" aria-labelledby="product3ModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="product3ModalLabel">Product 3 Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Price:</strong> $39.99</p>
+                    <p><strong>Description:</strong> Trendy accessories to complete your look.</p>
+                    <p><strong>Material:</strong> Leather, Metal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Introduction -->
+    <section class="introduction my-5">
+        <div class="container">
+            <h1 class="text-center">Welcome to FashionFusion</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="https://www.galleria.co.za/wp-content/uploads/2019/04/galleria-181-1024x683.jpg" class="object-fit-contain border rounded" alt="..." height="400px" width="550px">
+                </div>
+                <div class="col-md-6">
+                    <p>  Welcome to Fashion Fusion, your ultimate destination for trendsetting styles and timeless classics.<br> Whether you prefer to shop from the comfort of your home or enjoy the tactile <br>experience of in-store shopping, we've got you covered.<br> Our online store offers a seamless browsing and purchasing experience, complete with detailed product descriptions, high-resolution images, and secure checkout options. For those who love to see, touch, and try on our collections, visit us at our brick-and-mortar location where our friendly staff is ready to assist you. At Fashion Fusion, we blend the best of both worlds to bring you unparalleled convenience and a curated selection of the latest in fashion. Step into a world where style knows no boundaries—shop with us online or offline today!</p>
+                    <p>Thank you for choosing FashionFusion. We look forward to serving you!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 My eCommerce Store. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

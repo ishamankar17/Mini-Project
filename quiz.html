@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Language Quiz Game</title>
+    <link rel="stylesheet" href="quiz.css">
+    <script defer src="Quiz_script.js"></script>
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    
+ <!-- Bootstrap CSS -->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+ <!-- Bootstrap Bundle with Popper.js -->
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+    <style>
+    
+    body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #def9e5;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+  transform: translateX(-100px);
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* Main container with vertical layout */
+.main-container {
+    display: flex;
+    flex-direction: column; /* Arranges elements in a column */
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Info section at the top */
+.info-section {
+    width: 90%;  /* Make it wider */
+    text-align: center;  /* Center align text */
+    background: rgb(225, 251, 137);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Quiz container below the info-section */
+.quiz-container {
+    background: rgb(255, 254, 227);
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    margin-top: 10px; /* Added spacing */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for sign language images */
+img {
+    width: 250px;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+/* Options buttons */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.option-btn:hover {
+    background: #0056b3;
+}
+
+/* Score and result */
+#result {
+    font-size: 18px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+#hint {
+    font-style: italic;
+    color: darkgray;
+    margin-top: 5px;
+}
+
+/* Hint button */
+#hintButton {
+    margin-top: 10px;
+    background: #ff9800;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#hintButton:hover {
+    background: #e68900;
+}
+
+
+    /* Navbar */
+    .navbar {
+     background: #c8e6c9; /* Soft green from the image */
+     padding: 10px 0;
+     display: flex;
+     justify-content: center;
+     gap: 20px;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+     
+ }
+ 
+ 
+         .navbar .navbar-brand {
+             font-weight: bold;
+             color: black !important;
+             display: flex;
+             gap: 25px;
+         }
+ 
+         .navbar-nav .nav-link {
+             font-weight: bold;
+             color: black !important;
+             transition: 0.3s;
+             font-size: medium;
+             gap: 25px !important;
+             
+         }
+ 
+         .navbar-nav .nav-link:hover {
+             background: rgba(50, 205, 50, 0.3);
+             border-radius: 10px;
+         }
+ 
+         /* Dropdown */
+         .dropdown select {
+             padding: 8px;
+             border-radius: 5px;
+             border: none;
+             background: #b2e3a8;
+             font-weight: bold;
+         }
+         .navbar-toggler {
+     margin-right: auto;
+   /* Pushes it to the right */
+ }
+ 
+         @media (max-width: 991px) {
+     .navbar-collapse {
+         position: absolute;
+         top: 100%; /* Position it right below the navbar */
+         left: 0;
+         width: 50% !important;
+         background: rgba(255, 255, 255, 0.95);
+         box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+         z-index: 1000; /* Ensure it stays above other content */
+         align-items: flex-end; /* Move items to the right */
+         text-align: left; /* Align text */
+         padding-left: 20px; /* Add some spacing */
+     }
+ } 
+  
+ 
+     </style>
+ </head>
+ <body>
+    
+ 
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-light">
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+         <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="collapse navbar-collapse" id="navbarNav">
+         <ul class="navbar-nav mx-auto">
+             <li class="nav-item me-3"><a class="nav-link" href="Homeapp.html">Home <i class="bi bi-house"></i></a></li>
+             <li class="nav-item me-3"><a class="nav-link" href="LearnISL.html">Learn ISL <i class="bi bi-alphabet-uppercase"></i></a></li>
+             <li class="nav-item me-3"><a class="nav-link" href="LearnNumber.html">Learn Numbers <i class="bi bi-list-ol"></i></a></li>
+             <li class="nav-item me-3"><a class="nav-link" href="#translator">Translator <i class="bi bi-translate"></i></a></li>
+             <li class="nav-item me-3"><a class="nav-link" href="Aboutusapp.html">About Us <i class="bi bi-file-earmark-person-fill"></i></a></li>
+             <li class="nav-item me-3"><a class="nav-link" href="Contactpage.html">Contact <i class="bi bi-person-lines-fill"></i></a></li>
+             <li class="nav-item dropdown">
+                 <select id="languageSelect">
+                     <option value="en">English</option>
+                     <option value="hi">Hindi</option>
+                 </select>
+             </li>
+         </ul>
+     </div>
+ </nav>
+   
+ <div class="header">
+    <h1>Learn Indian Sign Language</h1>
+    <p class="subtitle">Empowering communication through ISL - Learn, Practice, and Connect!</p>
+</div>
+
+    <div class="main-container">
+        <!-- Info Section at the Top -->
+        <div class="info-section">
+            <h1>Sign Language Quiz</h1>
+            <h2>Learn and Test Your Knowledge of Sign Language!</h2>
+            
+        </div>
+
+        <!-- Quiz Container Below -->
+        <div class="quiz-container">
+            <h1>Sign Language Quiz</h1>
+            <h3>Which sign is this?</h3>
+            <img id="signImage" src="" alt="Sign Language Image">
+            
+            <div class="options">
+                <button class="option-btn" onclick="checkAnswer(this)"></button>
+                <button class="option-btn" onclick="checkAnswer(this)"></button>
+                <button class="option-btn" onclick="checkAnswer(this)"></button>
+                <button class="option-btn" onclick="checkAnswer(this)"></button>
+            </div>
+
+            <p id="result"></p>
+            <button id="hintButton" onclick="showHint()">Hint</button>
+            <p id="hint"></p>
+            <p>Score: <span id="score">0</span></p>
+            <button onclick="nextQuestion()">Next</button>
+        </div>
+    </div>
+
+    <script src="Quiz_script.js"></script>
+</body>
+</html>
+

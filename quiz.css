@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #c3ffba;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main container with vertical layout */
+.main-container {
+    display: flex;
+    flex-direction: column; /* Arranges elements in a column */
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Info section at the top */
+.info-section {
+    width: 90%;  /* Make it wider */
+    text-align: center;  /* Center align text */
+    background: rgb(225, 251, 137);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Quiz container below the info-section */
+.quiz-container {
+    background: rgb(255, 254, 227);
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    margin-top: 10px; /* Added spacing */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for sign language images */
+img {
+    width: 250px;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+/* Options buttons */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.option-btn:hover {
+    background: #0056b3;
+}
+
+/* Score and result */
+#result {
+    font-size: 18px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+#hint {
+    font-style: italic;
+    color: darkgray;
+    margin-top: 5px;
+}
+
+/* Hint button */
+#hintButton {
+    margin-top: 10px;
+    background: #ff9800;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#hintButton:hover {
+    background: #e68900;
+}
+

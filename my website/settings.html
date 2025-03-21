@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <title>Settings</title>
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="index.html"><img src="C:\Users\Isha\OneDrive\Pictures\Screenshot 2024-07-03 182959.png" alt="Logo" height="40" >FashionFusion</a>
+        <style>
+            .navbar-brand {
+                font-family: '';
+                font-size: 1.5em;
+                font-weight: 700;
+                color: #333;
+                text-transform: uppercase;
+            }
+        </style>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html"><i class="bi bi-house-fill"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="products.html"><i class="bi bi-ui-checks-grid"></i>Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html"><i class="bi bi-person-vcard-fill"></i> About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="orders.html"><i class="bi bi-handbag"></i> My Orders</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <li class="nav-item active">
+                    <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="bi bi-person-circle"></i>
+                        My Account<span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="profile.html">Profile</a>
+                        <a class="dropdown-item" href="#">Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Logout</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <div class= "col-md-4">
+    <section class="my-5">
+        <div class="container">
+            <h2 class="text-center mb-4"></h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="name"><i class="bi bi-pc-horizontal"></i> Name</label>
+                                    <input type="text" class="form-control" id="name" value="John Doe" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact"><i class="bi bi-telephone"></i> Contact Number</label>
+                                    <input type="text" class="form-control" id="contact" value="123-456-7890" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email"><i class="bi bi-envelope-fill"></i> Email address</label>
+                                    <input type="email" class="form-control" id="email" value="johndoe@example.com" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address"><i class="bi bi-file-earmark-richtext"></i> Address</label>
+                                    <textarea class="form-control" id="address" rows="3" disabled>123 Main St, Anytown, CA 12345</textarea>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="newsletter" disabled checked>
+                                    <label class="form-check-label" for="newsletter">Subscribe to Newsletter</label>
+                                </div>
+                                <button type="button" class="btn btn-primary mt-3" id="editBtn"><i class="bi bi-pencil-fill"></i> Edit Profile</button>
+                                <button type="submit" class="btn btn-success mt-3" id="saveBtn" style="display: none;">Save Changes</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 fixed-bottom">
+        <p>&copy; 2024 My eCommerce Store. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and custom script if needed -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('editBtn').addEventListener('click', function() {
+            document.getElementById('name').disabled = false;
+            document.getElementById('contact').disabled = false;
+            document.getElementById('email').disabled = false;
+            document.getElementById('address').disabled = false;
+            document.getElementById('newsletter').disabled = false;
+            document.getElementById('saveBtn').style.display = 'block';
+            this.style.display = 'none';
+        });
+    </script>
+    <div class= "col-md-4">
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h2>Settings</h2>
+                <div class="setting-option">
+                    <h4>Language</h4>
+                    <select id="language">
+                        <option value="english">English</option>
+                        <option value="spanish">Spanish</option>
+                        <option value="french">French</option>
+                        <option value="german">German</option>
+                    </select>
+                </div>
+                <div class="setting-option">
+                    <h4>Theme</h4>
+                    <select id="theme">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="blue">Blue</option>
+                        <option value="green">Green</option>
+                    </select>
+                </div>
+                <div class="setting-option">
+                    <h4>Notifications</h4>
+                    <label class="switch">
+                        <input type="checkbox" id="notifications">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="setting-option">
+                    <h4>Smart Services</h4>
+                    <label class="switch">
+                        <input type="checkbox" id="smart-services">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="setting-option">
+                    <h4>Security</h4>
+                    <label class="switch">
+                        <input type="checkbox" id="security">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <a href="index.html" class="back-arrow">&larr; Go Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
