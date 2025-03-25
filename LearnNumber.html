@@ -31,7 +31,6 @@
 
     .navbar {
       background: #c8e6c9;
-      padding: 10px 0;
       width: 100%;
       position: fixed;
       top: 0;
@@ -40,6 +39,9 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       font-weight: bold;
       color: black !important;
+      padding: 5px 15px; /* Reduce padding */
+      height: 55px; /* Reduce height */
+      margin-bottom: 50px;
     }
     .navbar-nav .nav-link {
         font-weight: bold;
@@ -129,9 +131,31 @@
         align-items: flex-end; /* Move items to the right */
         text-align: left; /* Align text */
         padding-left: 20px; /* Add some spacing */
+  
         
     }
 } 
+.navbar-toggler {
+  padding: 5px 10px; /* Reduce padding */
+  font-size: 20px; /* Adjust size */
+  border: 1px solid #666; /* Add a subtle border */
+  background: #c8e6c9;; /* Background color */
+  border-radius: 5px;
+  position: absolute;
+  top: 10px; /* Adjust based on navbar height */
+  left: 10px; /* Adjust based on design */
+  z-index: 1000; /* Ensure it stays above other elements */
+}
+
+.navbar-toggler:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+.navbar-toggler {
+  margin: 0 !important;
+}
+
+
   </style>
 </head>
 <body>
