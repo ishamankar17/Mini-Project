@@ -11,47 +11,28 @@
      <!-- Bootstrap CSS -->
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    
- <!-- Bootstrap CSS -->
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
- <!-- Bootstrap Bundle with Popper.js -->
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
- <!-- Bootstrap 5 CSS -->
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-
+     <!-- Bootstrap CSS -->
+ <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+ 
+ <!-- Bootstrap Icons -->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
-<body>
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light">
-<div class="container-fluid">
-   
-    <!-- Toggler Button -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto">
-            <li class="nav-item me-3"><a class="nav-link" href="index.html">Home <i class="bi bi-house"></i></a></li>
-            <li class="nav-item me-3"><a class="nav-link" href="LearnISL.html">Learn ISL <i class="bi bi-alphabet-uppercase"></i></a></li>
-            <li class="nav-item me-3"><a class="nav-link" href="LearnNumber.html">Learn Numbers <i class="bi bi-list-ol"></i></a></li>
-            <li class="nav-item me-3"><a class="nav-link" href="#translator">Translator <i class="bi bi-translate"></i></a></li>
-            <li class="nav-item me-3"><a class="nav-link" href="Aboutusapp.html">About Us <i class="bi bi-file-earmark-person-fill"></i></a></li>
-            <li class="nav-item me-3"><a class="nav-link" href="Contactpage.html">Contact <i class="bi bi-person-lines-fill"></i></a></li>
-            <li class="nav-item dropdown">
-                <select id="languageSelect">
-                    <option value="en">English</option>
-                    <option value="hi">Hindi</option>
-                </select>
-            </li>
-        </ul>
+<div class="navbar">
+    <li><a href="Homeapp.html">Home<i class="bi bi-house"></i></a></li>
+        <li><a href="LearnISL.html">Learn ISL <i class="bi bi-alphabet-uppercase"></i></a></li>
+        <li><a href="LearnNumber.html">Learn Numbers <i class="bi bi-list-ol"></i></i></a></li>
+        <li><a href="#translator">Translator <i class="bi bi-translate"></i></a></li>
+        <li><a href="Aboutusapp.html">About Us <i class="bi bi-file-earmark-person-fill"></i></a></li>
+        <li><a href="Contactpage.html">Contact <i class="bi bi-person-lines-fill"></i></a></li>
+    <div class="dropdown">
+        <li>
+            <select id="languageSelect">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+            </select>
+        </li>
     </div>
 </div>
-</nav>
-
 <body>
    
     <div class="contact-container">
@@ -80,211 +61,183 @@
                 <i class='bx bxs-message'></i>
                 <textarea id="message" placeholder="Your Message"></textarea>
             </div>
-
             <div>
                 <button id="sendButton" type="submit">Send Message</button>
-            </div>
         </form>
     </div>
+    </div>
+
+
 
 <style>
-body {
-    font-family: Arial, sans-serif;
-    background: #d4edc9;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.contact-container {
-    width: 85%;
-    max-width: 500px;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    margin-top: 100px;
-}
-
-@media (max-width: 768px) {
-    .contact-container {
-        width: 95%;
-        padding: 15px;
-        margin-top: 80px;
-    }
-}
-
-.input-group {
-    display: flex;
-    align-items: center;
-    background: white;
-    padding: 12px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    margin-bottom: 12px;
-}
-
-.input-group i {
-    margin-right: 10px;
-    color: #007bff;
-    font-size: 18px;
-}
-
-input, textarea {
-    width: 100%;
-    border: none;
-    outline: none;
-    font-size: 14px;
-    padding: 5px;
-}
-
-textarea {
-    resize: none;
-    height: 70px;
-}
-
-button {
-    background: #007bff;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-button:hover {
-    background: #0056b3;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-}
-</style> 
- <script>
-         document.addEventListener("DOMContentLoaded", function () {
-            const languageSelect = document.getElementById("languageSelect");
-            const title = document.getElementById("title");
-            const nameInput = document.getElementById("name");
-            const emailInput = document.getElementById("email");
-            const messageInput = document.getElementById("message");
-            const sendButton = document.getElementById("sendButton");
-
-            languageSelect.addEventListener("change", function () {
-                if (languageSelect.value === "hi") {
-                    title.textContent = "संपर्क करें";
-                    nameInput.placeholder = "आपका नाम";
-                    emailInput.placeholder = "आपका ईमेल";
-                    messageInput.placeholder = "आपका संदेश";
-                    sendButton.textContent = "संदेश भेजें";
-                } else {
-                    title.textContent = "CONTACT US";
-                    nameInput.placeholder = "Your Name";
-                    emailInput.placeholder = "Your Email";
-                    messageInput.placeholder = "Your Message";
-                    sendButton.textContent = "Send Message";
-                }
-            });
-        });
-    </script>
-
-<style>
-
-/* 🌟 General Styling */
-body {
-    font-family: Arial, sans-serif;
-    background: #d4edc9;
-    display: flex;
-    justify-content: center;  /* Centers horizontally */
-    align-items: center; 
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-    transform: translateX(-100px);
-    animation: slideInLeft 0.8s ease-out forwards;
-}
-
-@keyframes slideInLeft {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-   /* Navbar */
-   .navbar {
+/* Navbar */
+.navbar {
     background: #c8e6c9; /* Soft green from the image */
     padding: 10px 0;
     display: flex;
     justify-content: center;
     gap: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: fixed; /* Fixes the navbar at the top */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 10px 0;
-   z-index: 1000; /* Ensures it stays above other content */
+    z-index: 1000; /* Ensures it stays on top of other elements */
 }
 
 
-        .navbar .navbar-brand {
-            font-weight: bold;
-            color: black !important;
-            display: flex;
-            gap: 25px;
-            position: fixed;
-        }
-
-        .navbar-nav .nav-link {
-            font-weight: bold;
-            color: black !important;
-            transition: 0.3s;
-            font-size: medium;
-            gap: 25px !important;
-            
-        }
-
-        .navbar-nav .nav-link:hover {
-            background: rgba(50, 205, 50, 0.3);
-            border-radius: 10px;
-        }
-
-        /* Dropdown */
-        .dropdown select {
-            padding: 8px;
-            border-radius: 5px;
-            border: none;
-            background: #b2e3a8;
-            font-weight: bold;
-        }
-        .navbar-toggler {
-        margin-right: auto;  /* Pushes it to the right */
+/* Remove dots */
+.navbar a {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    transition: 0.3s;
+    font-weight: bold;
 }
 
-        @media (max-width: 991px) {
-    .navbar-collapse {
-        position: absolute;
-        top: 100%; /* Position it right below the navbar */
-        left: 0;
-        width: 50% !important;
-        background: rgba(255, 255, 255, 0.95);
-        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-        z-index: 1000; /* Ensure it stays above other content */
-        align-items: flex-end; /* Move items to the right */
-        text-align: left; /* Align text */
-        padding-left: 20px; /* Add some spacing */
-    }
+.navbar a:hover {
+    background: rgba(50, 205, 50, 0.3); /* Light green hover effect */
+    border-radius: 10px;
 }
+/* Fix: Remove dots from navbar */
+.navbar ul {
+    list-style: none; /* Removes default bullets */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Adjust spacing */
+}
+
+/* Ensure <li> elements are properly spaced */
+.navbar li {
+    display: inline-block;
+}
+
+/* Dropdown */
+.dropdown select {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    background: #b2e3a8;
+    color: black;
+    font-weight: bold;
+}
+
+/* 🌟 General Styling */
 body {
     font-family: Arial, sans-serif;
-    background:#d4edc9;
+    background: linear-gradient(to right, #83a4d4, #b6fbff);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    padding: 0;
+}
+
+/* 🌟 Contact Form Container */
+.contact-container {
+  width: 40vw;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: 0.3s ease-in-out;
+}
+
+/* Hover Effect: Lift the form slightly */
+.contact-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* 🌟 Language Selector */
+.language-toggle {
+    margin-bottom: 15px;
+}
+
+.language-toggle select {
+    padding: 8px;
+    font-size: 20px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 🌟 Headings */
+h2 {
+   
+    color: #333;
+}
+
+/* 🌟 Input Group */
+.input-group {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-in-out;
+}
+
+/* 🌟 Icon Styling */
+.input-group i {
+    margin-right: 10px;
+    color: #007bff;
+    font-size: 20px;
+}
+
+/* 🌟 Input & Textarea */
+input, textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+/* Hover Effect on Input Fields */
+.input-group:hover {
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.2);
+    border-color: #007bff;
+}
+
+#title{
+    color: #041e39;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+/* 🌟 Textarea */
+textarea {
+    resize: none;
+    height: 80px;
+}
+
+/* 🌟 Button */
+button {
+    background: #007bff;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
+}
+
+/* Hover Effect on Button */
+button:hover {
+    background: #0056b3;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
 }
 </style>
 <script>
@@ -314,11 +267,6 @@ document.getElementById("languageSelect").addEventListener("change", function ()
     document.getElementById("message").placeholder = translations[language].message;
     document.getElementById("sendButton").textContent = translations[language].send;
 });
-
-
-
-
-
 </script>
 </body>
 
