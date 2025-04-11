@@ -4,10 +4,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sign Language</title>
+        <link rel="stylesheet" href="dark-mode.css">
+    <script src="dark-mode.js"></script>
         <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-   
+  <!-- Firebase App (core) -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+ 
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- Bootstrap Bundle with Popper.js -->
@@ -31,6 +35,8 @@
                         <option value="en">English</option>
                         <option value="hi">Hindi</option>
                     </select>
+                    
+
                 </li>
             </ul>
         </div>
@@ -42,27 +48,116 @@
         </div>
 
         <form id="contactForm">
-            <div class="input-group">
-                <label> <i class="bi bi-person-fill"></i> Name  </label>
-                <input type="text" id="name" required>
-            </div>
-
-            <div class="input-group">
-                <label><i class="bi bi-envelope-fill"></i> Email </label>
-                <input type="email" id="email" required>
-            </div>
-
-            <div class="input-group">
-                <label> <i class="bi bi-chat-dots-fill"></i> Comment </label>
-                <textarea id="comment"></textarea>
-            </div>
-
-            <button type="submit">Submit</button>
+          <div class="input-group">
+            <label><i class="bi bi-person-fill"></i> Name</label>
+            <input type="text" name="name" id="name" required>
+          </div>
+        
+          <div class="input-group">
+            <label><i class="bi bi-envelope-fill"></i> Email</label>
+            <input type="email" name="email" id="email" required>
+          </div>
+        
+          <div class="input-group">
+            <label><i class="bi bi-chat-dots-fill"></i> Comment</label>
+            <textarea name="comment" id="message" required></textarea>
+          </div>
+        
+          <button type="submit">Submit</button>
         </form>
+        
+        
+        
     </div>
-
+    
+    <script>
+        function translateToHindi() {
+          const translations = {
+            "Home": "होम",
+            "Learn ISL": "आईएसएल सीखें",
+            "Learn Numbers": "संख्या सीखें",
+            "Translator": "अनुवादक",
+            "About Us": "हमारे बारे में",
+            "Contact": "संपर्क करें",
+            "Contact us": "संपर्क करें",
+            "This is a learning app for the deaf and mute,": "यह मूक और बधिरों के लिए एक शिक्षण ऐप है,",
+            "featuring a sign language converter to aid communication and understanding.": "जिसमें संचार और समझने में सहायता के लिए सांकेतिक भाषा कन्वर्टर है।",
+            "Name": "नाम",
+            "Email": "ईमेल",
+            "Comment": "टिप्पणी",
+            "Submit": "जमा करें"
+          };
+      
+          // Translate visible text content in all elements
+          document.querySelectorAll("*").forEach(el => {
+            if (["INPUT", "TEXTAREA", "SELECT", "SCRIPT", "STYLE"].includes(el.tagName)) return;
+      
+            el.childNodes.forEach(node => {
+              if (node.nodeType === Node.TEXT_NODE) {
+                const trimmed = node.nodeValue.trim();
+                if (translations[trimmed]) {
+                  node.nodeValue = node.nodeValue.replace(trimmed, translations[trimmed]);
+                }
+              }
+            });
+          });
+      
+          // Translate placeholders (input, textarea)
+          document.querySelectorAll("input[placeholder], textarea[placeholder]").forEach(el => {
+            const placeholder = el.getAttribute("placeholder");
+            if (translations[placeholder]) {
+              el.setAttribute("placeholder", translations[placeholder]);
+            }
+          });
+      
+          // Translate buttons and submit inputs
+          document.querySelectorAll("button, input[type='submit']").forEach(el => {
+            const text = el.value || el.innerText;
+            const trimmed = text.trim();
+            if (translations[trimmed]) {
+              if (el.value) {
+                el.value = translations[trimmed];
+              } else {
+                el.innerText = translations[trimmed];
+              }
+            }
+          });
+      
+          // Translate text nodes inside <label> with icons
+          document.querySelectorAll("label").forEach(el => {
+            el.childNodes.forEach(node => {
+              if (node.nodeType === Node.TEXT_NODE) {
+                const trimmed = node.nodeValue.trim();
+                if (translations[trimmed]) {
+                  node.nodeValue = " " + translations[trimmed];
+                }
+              }
+            });
+          });
+        }
+      
+        // Event listener for dropdown
+        document.addEventListener("DOMContentLoaded", function () {
+          const langSelect = document.getElementById("languageSelect");
+          if (langSelect) {
+            langSelect.addEventListener("change", function () {
+              const selectedLang = this.value;
+              if (selectedLang === "hi") {
+                translateToHindi();
+              } else {
+                location.reload(); // Reset to English
+              }
+            });
+          }
+        });
+      </script>
+      
     <script src="script.js"></script>
     <style>
+  body {
+  font-family: Arial, sans-serif;
+  background-color: #def9e5;
+  }
          /* Navbar */
          .navbar {
     background: #c8e6c9; /* Soft green from the image */
@@ -169,7 +264,7 @@
 }
 
 .contact-header p {
-    color: #555;
+    color: #141414;
     font-size: 12px;
     margin-bottom: 20px;
 }
@@ -216,4 +311,44 @@ button:hover {
 }
 
         </style>
+<script>
+// Your Firebase config
+const firebaseConfig = {
+  apiKey: "AIzaSyAQVWXzh3G9WPP7yyeb6JrxxWqwpGLyi8o",
+  authDomain: "contact-us-58e66.firebaseapp.com",
+  projectId: "contact-us-58e66",
+  storageBucket: "contact-us-58e66.appspot.com",
+  messagingSenderId: "1029178944336",
+  appId: "1:1029178944336:web:f84fde0d007085d4b7da55",
+  measurementId: "G-N33YB8R9GW",
+  databaseURL: "https://contact-us-58e66-default-rtdb.firebaseio.com"  // Add this line
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Reference to the database
+const contactFormDB = firebase.database().ref("contactForm");
+
+// Form submission
+document.getElementById("contactForm").addEventListener("submit", submitForm);
+
+function submitForm(e) {
+  e.preventDefault();
+
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+  let message = document.getElementById("message").value;
+
+  contactFormDB.push({
+    name: name,
+    email: email,
+    message: message
+  });
+
+  alert("Message sent!");
+  document.getElementById("contactForm").reset();
+}
+</script>
+    </body>
     </html>
