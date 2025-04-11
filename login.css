@@ -21,49 +21,41 @@ body {
 }
 
 /* Logo */
-.logo img {
+.login-image {
     width: 200px;
-}
-.logo {
-    display: block;
-    max-width: 200px;
     height: auto;
-    margin: 0 auto;
+    margin-bottom: 15px;
 }
 
 /* Titles */
 h2 {
     font-size: 20px;
     font-weight: bold;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
-.subtitle {
-    color: #888;
+p {
+    color: #666;
     font-size: 14px;
     margin-bottom: 15px;
 }
 
 /* Input Fields */
-.input-group {
-    position: relative;
-    width: 100%;
-    margin-bottom: 15px;
-}
-
-.input-group input {
+input {
     width: 100%;
     padding: 12px;
+    margin: 5px 0;
     border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 16px;
+    box-sizing: border-box;
 }
 
 /* Login Button */
-.login-btn {
+button {
     width: 100%;
     padding: 12px;
-    background: #ffcc00;
+    background: #84f448;
     color: #000;
     font-size: 16px;
     font-weight: bold;
@@ -73,13 +65,18 @@ h2 {
     margin-top: 10px;
 }
 
-.login-btn:hover {
-    background: #ffdb4d;
+button:hover {
+    background: #67b32d;
 }
 
 /* Links */
-.forgot-password, .register {
+.forgot-password {
     margin-top: 10px;
+    display: block;
+}
+
+.signup-link {
+    font-weight: bold;
 }
 
 a {
