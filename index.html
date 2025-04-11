@@ -51,7 +51,7 @@
             signInWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
                     alert("Login Successful! Redirecting...");
-                    window.location.href = "index.html"; // Redirect to home
+                    window.location.href = "home.html"; // Redirect to home
                 })
                 .catch((error) => {
                     alert(error.message);
