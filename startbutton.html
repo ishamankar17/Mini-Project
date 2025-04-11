@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learning App</title>
-
+    <link rel="stylesheet" href="dark-mode.css">
+    <script src="dark-mode.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <!-- Bootstrap Icons -->
@@ -15,8 +16,8 @@
     <style>
        
 
-        /* Navbar */
-        .navbar {
+    /* Navbar */
+   .navbar {
     background: #c8e6c9; /* Soft green from the image */
     padding: 10px 0;
     display: flex;
@@ -37,9 +38,7 @@
   }
 
 }
-
-
-        .navbar .navbar-brand {
+      .navbar .navbar-brand {
             font-weight: bold;
             color: black;
             display: flex;
@@ -83,7 +82,10 @@
     }
 }
 
-
+.navbar-toggler:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
         
     </style>
 </head>
@@ -103,7 +105,7 @@
                     <li class="nav-item me-3"><a class="nav-link" href="index.html">Home <i class="bi bi-house"></i></a></li>
                     <li class="nav-item me-3"><a class="nav-link" href="LearnISL.html">Learn ISL <i class="bi bi-alphabet-uppercase"></i></a></li>
                     <li class="nav-item me-3"><a class="nav-link" href="LearnNumber.html">Learn Numbers <i class="bi bi-list-ol"></i></a></li>
-                    <li class="nav-item me-3"><a class="nav-link" href="#translator">Translator <i class="bi bi-translate"></i></a></li>
+                    <li class="nav-item me-3"><a class="nav-link" href=" http://127.0.0.1:5000">Translator <i class="bi bi-translate"></i></a></li>
                     <li class="nav-item me-3"><a class="nav-link" href="Aboutusapp.html">About Us <i class="bi bi-file-earmark-person-fill"></i></a></li>
                     <li class="nav-item me-3"><a class="nav-link" href="Contactpage.html">Contact <i class="bi bi-person-lines-fill"></i></a></li>
                     <li class="nav-item dropdown">
@@ -111,6 +113,8 @@
                             <option value="en">English</option>
                             <option value="hi">Hindi</option>
                         </select>
+                       
+
                     </li>
                 </ul>
             </div>
@@ -302,6 +306,79 @@ a {
 
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+<script>
+    function translateToHindi() {
+        const translations = {
+          "Home": "होम",
+          "Learn ISL": "आईएसएल सीखें",
+          "Learn Numbers": "संख्याएँ सीखें",
+          "Translator": "अनुवादक",
+          "About Us": "हमारे बारे में",
+          "Contact": "संपर्क करें",
+          "Learn ISL Numbers (1 to 10)": "आईएसएल नंबर सीखें (1 से 10)",
+          "Enter a number (1-10):": "1 से 10 के बीच एक संख्या दर्ज करें:",
+          "Show ISL Sign": "आईएसएल संकेत दिखाएं",
+          "Enter a number to see the ISL sign!": "आईएसएल संकेत देखने के लिए एक संख्या दर्ज करें!",
+          "Please enter a valid number between 1 and 10.": "कृपया 1 से 10 के बीच एक मान्य संख्या दर्ज करें।",
+          "ISL Sign for Number": "संख्या के लिए आईएसएल संकेत",
+          "English": "अंग्रेज़ी",
+          "Hindi": "हिंदी"
+        };
+    
+        document.querySelectorAll("*").forEach(el => {
+          if (["INPUT", "TEXTAREA", "SCRIPT", "STYLE", "SELECT"].includes(el.tagName)) return;
+          
+          el.childNodes.forEach(node => {
+            if (node.nodeType === Node.TEXT_NODE) {
+              const trimmed = node.nodeValue.trim();
+              if (translations[trimmed]) {
+                node.nodeValue = node.nodeValue.replace(trimmed, translations[trimmed]);
+              }
+            }
+          });
+        });
+    
+        // Translate input placeholders
+        document.querySelectorAll("input[placeholder], textarea[placeholder]").forEach(el => {
+          const placeholder = el.getAttribute("placeholder");
+          if (translations[placeholder]) {
+            el.setAttribute("placeholder", translations[placeholder]);
+          }
+        });
+    
+        // Translate buttons and input[type=submit]
+        document.querySelectorAll("button, input[type='submit']").forEach(el => {
+          const text = el.value || el.innerText;
+          const trimmed = text.trim();
+          if (translations[trimmed]) {
+            if (el.value) {
+              el.value = translations[trimmed];
+            } else {
+              el.innerText = translations[trimmed];
+            }
+          }
+        });
+    
+        // Update dropdown text manually if needed
+        const select = document.getElementById("languageSelect");
+        if (select) {
+          select.options[0].text = "अंग्रेज़ी";
+          select.options[1].text = "हिंदी";
+        }
+      }
+    
+      document.addEventListener("DOMContentLoaded", function () {
+        const langSelect = document.getElementById("languageSelect");
+        if (langSelect) {
+          langSelect.addEventListener("change", function () {
+            if (this.value === "hi") {
+              translateToHindi();
+            } else {
+              location.reload(); // Reload for English
+            }
+          });
+        }
+      });
+    </script>             
 </body>
 </html>
