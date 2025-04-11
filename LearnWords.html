@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Learn Words</title>
+  <link rel="stylesheet" href="dark-mode.css">
+    <script src="dark-mode.js"></script>
   <link rel="stylesheet" href="style.css" />
    <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -40,6 +42,7 @@
                         <option value="hi">Hindi</option>
                     </select>
                 </li>
+                
             </ul>
         </div>
     </div>
@@ -291,7 +294,77 @@ h1 {
         padding-left: 20px; /* Add some spacing */
     }
 } 
+.navbar-toggler:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+
   </style>
+<script>
+const translations = {
+  "Learn Words": "शब्द सीखें",
+  "Home": "होम",
+  "Learn ISL": "भारतीय सांकेतिक भाषा सीखें",
+  "Learn Numbers": "संख्या सीखें",
+  "Translator": "अनुवादक",
+  "About Us": "हमारे बारे में",
+  "Contact": "संपर्क करें",
+  "Hello": "नमस्ते",
+  "Thank You": "धन्यवाद",
+  "Please": "कृपया",
+  "Good bye": "अलविदा",
+  "Glad": "प्रसन्न",
+  "Yes": "हाँ",
+  "You are welcome": "आपका स्वागत है",
+  "Sorry": "माफ कीजिए",
+  "No": "नहीं",
+  "Sad": "दुखी",
+  "House": "घर",
+  "Family": "परिवार",
+  "Good": "अच्छा",
+  "Love": "प्यार",
+  "Hi": "नमस्कार",
+  "Beautiful": "सुंदर",
+  "Happy": "खुश",
+  "Dance": "नृत्य",
+  "Stop": "रुको",
+  "Fear": "डर",
+  "Bye": "बाय",
+  "Hug": "गले लगाना",
+  "Want": "चाहते हैं",
+  "See you later": "फिर मिलेंगे"
+};
+document.getElementById('languageSelect').addEventListener('change', function() {
+  const lang = this.value;
+
+  if (lang === 'hi') {
+    // Change heading
+    document.querySelector('h1').innerText = translations["Learn Words"];
+
+    // Change navbar
+    document.querySelector('.nav-link[href="index.html"]').innerText = translations["Home"];
+    document.querySelector('.nav-link[href="LearnISL.html"]').innerText = translations["Learn ISL"];
+    document.querySelector('.nav-link[href="LearnNumber.html"]').innerText = translations["Learn Numbers"];
+    document.querySelector('.nav-link[href="#translator"]').innerText = translations["Translator"];
+    document.querySelector('.nav-link[href="Aboutusapp.html"]').innerText = translations["About Us"];
+    document.querySelector('.nav-link[href="Contactpage.html"]').innerText = translations["Contact"];
+
+    // Change word labels
+    document.querySelectorAll('.word').forEach(span => {
+      const originalText = span.innerText;
+      if (translations[originalText]) {
+        span.innerText = translations[originalText];
+      }
+    });
+
+  } else {
+    // Reload page to reset text to English
+    location.reload(); 
+  }
+});
+
+
+</script>  
 </body>
 
 </html>
