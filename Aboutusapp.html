@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Learning App</title>
+    <link rel="stylesheet" href="dark-mode.css">
+    <script src="dark-mode.js"></script>
     <link rel="stylesheet" href="style.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -28,6 +30,35 @@
     transform: translateX(0);
   }
 }
+span {
+    color: #2E7D32;
+    font-weight: bold;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.highlight-text {
+    color: #00796B; /* Elegant Teal */
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    transition: color 0.3s ease-in-out;
+}
+
+.highlight-text:hover {
+    color: #004D40; /* Darker shade on hover */
+}
+
+
         /* Navbar */
         .navbar {
     background: #c8e6c9; /* Soft green from the image */
@@ -85,6 +116,10 @@
         text-align: left; /* Align text */
         padding-left: 20px; /* Add some spacing */
     }
+}
+.navbar-toggler:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
 }
 
   /* About Us Section */
@@ -148,7 +183,7 @@
                 <li class="nav-item me-3"><a class="nav-link" href="index.html">Home <i class="bi bi-house"></i></a></li>
                 <li class="nav-item me-3"><a class="nav-link" href="LearnISL.html">Learn ISL <i class="bi bi-alphabet-uppercase"></i></a></li>
                 <li class="nav-item me-3"><a class="nav-link" href="LearnNumber.html">Learn Numbers <i class="bi bi-list-ol"></i></a></li>
-                <li class="nav-item me-3"><a class="nav-link" href="#translator">Translator <i class="bi bi-translate"></i></a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="http://127.0.0.1:5000">Translator <i class="bi bi-translate"></i></a></li>
                 <li class="nav-item me-3"><a class="nav-link" href="Aboutusapp.html">About Us <i class="bi bi-file-earmark-person-fill"></i></a></li>
                 <li class="nav-item me-3"><a class="nav-link" href="Contactpage.html">Contact <i class="bi bi-person-lines-fill"></i></a></li>
                 <li class="nav-item dropdown">
@@ -156,19 +191,24 @@
                         <option value="en">English</option>
                         <option value="hi">Hindi</option>
                     </select>
+                    
                 </li>
             </ul>
         </div>
     </nav>
     <!-- About Us Section -->
     <div class="about-container">
-        <h1>About Our Learning App</h1>
-        <p>
+        <h1>
+           <span style="color: #07e4c3; font-weight: bold;">   ABOUT</span> OUR <span style="color: #07e4c3; font-weight: bold;">LEARNING </span>APP
+        </h1>
+        
+        <!-- <h1>About Our Learning App</h1> -->
+        <p style=" text-align: left;">
             Our Learning App for Deaf and Mute is designed to empower individuals
             by making education accessible, interactive, and inclusive. We use 
             sign language, visuals, and animations to help learners grasp concepts effectively.
         </p>
-        <p>
+        <p style=" text-align:left;">
             Our mission is to bridge the communication gap and enable everyone to learn, 
             grow, and connect with the world in a meaningful way.
         </p>
@@ -185,6 +225,110 @@
     <div class="footer">
         &copy; 2025 Learning App. All Rights Reserved.
     </div>
-
+    <script>
+        const translations = {
+            "Home": "होम",
+            "Learn ISL": "आईएसएल सीखें",
+            "Learn Numbers": "संख्या सीखें",
+            "Translator": "अनुवादक",
+            "About Us": "हमारे बारे में",
+            "Contact": "संपर्क करें",
+            "ABOUT LEARNING": "हमारे बारे में शिक्षा ऐप",
+            "ABOUT": "हमारे बारे में",
+            "LEARNING": "शिक्षा ऐप",
+            "Our Learning App for Deaf and Mute is designed to empower individuals by making education accessible, interactive, and inclusive. We use sign language, visuals, and animations to help learners grasp concepts effectively.":
+                "हमारा मूक-बधिरों के लिए लर्निंग ऐप व्यक्तियों को सशक्त बनाने के लिए डिज़ाइन किया गया है, जो शिक्षा को सुलभ, इंटरैक्टिव और समावेशी बनाता है। हम साइन लैंग्वेज, विज़ुअल्स और एनीमेशन का उपयोग करके सीखने की प्रक्रिया को प्रभावी बनाते हैं।",
+            "Our mission is to bridge the communication gap and enable everyone to learn, grow, and connect with the world in a meaningful way.":
+                "हमारा मिशन संचार की खाई को पाटना है और सभी को सीखने, बढ़ने और दुनिया से सार्थक रूप से जुड़ने में सक्षम बनाना है।",
+            "All Rights Reserved.": "सर्वाधिकार सुरक्षित।",
+            "© 2025 Learning App. All Rights Reserved.": "© 2025 लर्निंग ऐप. सर्वाधिकार सुरक्षित।",
+            "© 2025 Learning App. सर्वाधिकार सुरक्षित।": "© 2025 लर्निंग ऐप. सर्वाधिकार सुरक्षित।"
+        };
+    
+        document.getElementById("languageSelect").addEventListener("change", function () {
+            const selectedLang = this.value;
+            if (selectedLang === "hi") {
+                translateToHindi();
+            } else {
+                location.reload(); // Reset to English
+            }
+        });
+    
+        function translateToHindi() {
+            document.querySelectorAll("*").forEach(el => {
+                if (el.children.length === 0 && el.innerText.trim() !== "") {
+                    const originalText = el.innerText.trim();
+    
+                    // Check exact match
+                    if (translations[originalText]) {
+                        el.innerText = translations[originalText];
+                    } else {
+                        // Check for partial translations (e.g., "ABOUT LEARNING" split)
+                        Object.keys(translations).forEach(key => {
+                            if (originalText.includes(key)) {
+                                el.innerText = originalText.replace(key, translations[key]);
+                            }
+                        });
+                    }
+                }
+            });
+        }
+    
+        document.addEventListener("DOMContentLoaded", function () {
+            const languageSelect = document.getElementById("languageSelect");
+        
+            const translations = {
+                "Home": "होम",
+                "Learn ISL": "आईएसएल सीखें",
+                "Learn Numbers": "संख्या सीखें",
+                "Translator": "अनुवादक",
+                "About Us": "हमारे बारे में",
+                "Contact": "संपर्क करें",
+                "ABOUT": "हमारे बारे में",
+                "LEARNING": "शिक्षा",
+                
+            };
+        
+            function translatePage(language) {
+                if (language === "hi") {
+                    document.querySelectorAll("a.nav-link").forEach(link => {
+                        const engText = link.childNodes[0].nodeValue.trim();
+                        if (translations[engText]) {
+                            link.childNodes[0].nodeValue = translations[engText] + " ";
+                        }
+                    });
+        
+                    // Translate Heading
+                    const heading = document.querySelector(".about-container h1");
+                    if (heading) {
+                        heading.innerHTML = `<span style="color: #07e4c3; font-weight: bold;">${translations["ABOUT"]}</span> ${translations["LEARNING"]} <span style="color: #07e4c3; font-weight: bold;">ऐप</span>`;
+                    }
+        
+                    // Translate Paragraphs
+                    document.querySelectorAll(".about-container p").forEach(p => {
+                        const text = p.textContent.trim();
+                        if (translations[text]) {
+                            p.textContent = translations[text];
+                        }
+                    });
+        
+                    // Translate footer
+                    const footer = document.querySelector(".footer");
+                    if (footer && footer.textContent.includes("All Rights Reserved.")) {
+                        footer.innerHTML = `&copy; 2025 Learning App. ${translations["All Rights Reserved."]}`;
+                    }
+                } else {
+                    // Reload to default English version
+                    location.reload(); // Or optionally reset text if you stored original text
+                }
+            }
+        
+            languageSelect.addEventListener("change", function () {
+                translatePage(this.value);
+            });
+        });
+        </script>
+        
+        
 </body>
 </html>
