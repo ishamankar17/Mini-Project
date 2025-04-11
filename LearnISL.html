@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="dark-mode.css">
+    <script src="dark-mode.js"></script>
+    <!-- Bootstrap CSS -->
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
       
@@ -63,6 +65,7 @@
             font-size: 15px;
             cursor: pointer;
             transition: 0.3s;
+            color: #031d36;
         }
         .grid button:hover {
             background-color: #357ec7;
@@ -142,6 +145,10 @@
         padding-left: 20px; /* Add some spacing */
     }
 } 
+.navbar-toggler:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
 
     </style>
 </head>
@@ -165,6 +172,7 @@
                     <option value="en">English</option>
                     <option value="hi">Hindi</option>
                 </select>
+               
             </li>
         </ul>
     </div>
@@ -227,6 +235,48 @@
             });
             grid.appendChild(button);
         });
+
     </script>
+<script>
+    const translations = {
+        en: {
+            header: "Learn English Alphabets in Sign Language",
+            instruction: "Click on a letter to see its sign representation:",
+            navHome: "Home",
+            navLearnISL: "Learn ISL",
+            navLearnNumbers: "Learn Numbers",
+            navTranslator: "Translator",
+            navAboutUs: "About Us",
+            navContact: "Contact"
+        },
+        hi: {
+            header: "सांकेतिक भाषा में अंग्रेजी वर्णमाला सीखें",
+            instruction: "हस्ताक्षर देखने के लिए अक्षर पर क्लिक करें:",
+            navHome: "मुखपृष्ठ",
+            navLearnISL: "आईएसएल सीखें",
+            navLearnNumbers: "संख्याएँ सीखें",
+            navTranslator: "अनुवादक",
+            navAboutUs: "हमारे बारे में",
+            navContact: "संपर्क करें"
+        }
+    };
+
+    const languageSelect = document.getElementById("languageSelect");
+
+    languageSelect.addEventListener("change", () => {
+        const lang = languageSelect.value;
+
+        // Apply translations
+        document.querySelector(".header").textContent = translations[lang].header;
+        document.querySelector(".container p strong").textContent = translations[lang].instruction;
+        document.querySelector('a[href="index.html"]').innerHTML = `${translations[lang].navHome} <i class="bi bi-house"></i>`;
+        document.querySelector('a[href="LearnISL.html"]').innerHTML = `${translations[lang].navLearnISL} <i class="bi bi-alphabet-uppercase"></i>`;
+        document.querySelector('a[href="LearnNumber.html"]').innerHTML = `${translations[lang].navLearnNumbers} <i class="bi bi-list-ol"></i>`;
+        document.querySelector('a[href=" http://127.0.0.1:5000"]').innerHTML = `${translations[lang].navTranslator} <i class="bi bi-translate"></i>`;
+        document.querySelector('a[href="Aboutusapp.html"]').innerHTML = `${translations[lang].navAboutUs} <i class="bi bi-file-earmark-person-fill"></i>`;
+        document.querySelector('a[href="Contactpage.html"]').innerHTML = `${translations[lang].navContact} <i class="bi bi-person-lines-fill"></i>`;
+    });
+</script>
+
 </body>
-</html>
+</html> 
