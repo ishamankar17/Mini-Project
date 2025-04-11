@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sign Language Learning - Categories</title>
+  <link rel="stylesheet" href="dark-mode.css">
+    <script src="dark-mode.js"></script>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
@@ -43,6 +45,7 @@
                       <option value="en">English</option>
                       <option value="hi">Hindi</option>
                   </select>
+                  
               </li>
           </ul>
       </div>
@@ -225,6 +228,10 @@ body {
         padding-left: 20px; /* Add some spacing */
     }
 } 
+.navbar-toggler:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
 
 </style>
 <script>
@@ -283,5 +290,79 @@ function loadCategory(category) {
 
 
 </script>
+<script>
+  const translations = {
+    "Home": "मुखपृष्ठ",
+    "Learn ISL": "आईएसएल सीखें",
+    "Learn Numbers": "संख्याएँ सीखें",
+    "Translator": "अनुवादक",
+    "About Us": "हमारे बारे में",
+    "Contact": "संपर्क करें",
+    "Learn Sign Language": "सांकेतिक भाषा सीखें",
+    "Click on a category to explore sign language gestures related to fruits, vegetables, animals, and colours.":
+      "फलों, सब्जियों, जानवरों और रंगों से संबंधित सांकेतिक भाषा के इशारों को देखने के लिए एक श्रेणी पर क्लिक करें।",
+    "Fruits": "फल",
+    "Vegetables": "सब्जियाँ",
+    "Animals": "जानवर",
+    "Colours": "रंग",
+    "Apple": "सेब",
+    "Banana": "केला",
+    "Orange": "संतरा",
+    "Grapes": "अंगूर",
+    "Pineapple": "अनानास",
+    "Cherry": "चेरी",
+    "Tomato": "टमाटर",
+    "Carrot": "गाजर",
+    "Potato": "आलू",
+    "Onion": "प्याज़",
+    "Beans": "फलियाँ",
+    "Peas": "मटर",
+    "Dog": "कुत्ता",
+    "Cat": "बिल्ली",
+    "Elephant": "हाथी",
+    "Tiger": "बाघ",
+    "Lion": "सिंह",
+    "Giraffe": "जिराफ़",
+    "Red": "लाल",
+    "Blue": "नीला",
+    "Green": "हरा",
+    "Yellow": "पीला",
+    "Black": "काला",
+    "White": "सफेद"
+  };
+
+  function translateTextNodes(element) {
+    element.childNodes.forEach((node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const text = node.textContent.trim();
+        if (translations[text]) {
+          node.textContent = node.textContent.replace(text, translations[text]);
+        }
+      } else if (node.nodeType === Node.ELEMENT_NODE) {
+        translateTextNodes(node);
+      }
+    });
+  }
+
+  document.getElementById('languageSelect').addEventListener('change', function () {
+    if (this.value === 'hi') {
+      document.querySelectorAll('a, h1, p, button').forEach(el => {
+        translateTextNodes(el);
+      });
+
+      // Translate dynamic image labels
+      document.querySelectorAll('.image-item p').forEach(p => {
+        const original = p.innerText.trim();
+        if (translations[original]) {
+          p.innerText = translations[original];
+        }
+      });
+    } else {
+      location.reload();
+    }
+  });
+</script>
+
+
 </body>
 </html>
